@@ -1,0 +1,1 @@
+npx create-docusaurus@latest docs classic --typescript
