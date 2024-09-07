@@ -1,0 +1,13 @@
+project_id: '7bb370e91fd3619549defde0ef65dc2f37bc7a86fc4fc422a8d4e337538efba78697a4010349ddf6'
+api_token_env: CROWDIN_PERSONAL_TOKEN
+preserve_hierarchy: true
+files:
+  # JSON 翻译文件
+  - source: /i18n/en/**/*
+    translation: /i18n/%two_letters_code%/**/%original_file_name%
+  # Markdown 文档文件 
+  - source: /docs/**/*
+    translation: /i18n/%two_letters_code%/docusaurus-plugin-content-docs/current/**/%original_file_name%
+  # Markdown 博客文件
+  - source: /blog/**/*
+    translation: /i18n/%two_letters_code%/docusaurus-plugin-content-blog/**/%original_file_name%
