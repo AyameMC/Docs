@@ -1,12 +1,12 @@
 # Dependencies
-/node_modules
+/docs/node_modules
 
 # Production
-/build
+/docs/build
 
 # Generated files
-.docusaurus
-.cache-loader
+/docs/.docusaurus
+/docs/.cache-loader
 
 # IDE
 /.idea
