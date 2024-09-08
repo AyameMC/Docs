@@ -1,15 +1,12 @@
 # Dependencies
-/docs/node_modules
+/node_modules
 
 # Production
-/docs/build
+/build
 
 # Generated files
-/docs/.docusaurus
-/docs/.cache-loader
-
-# IDE
-/.idea
+.docusaurus
+.cache-loader
 
 # Misc
 .DS_Store
