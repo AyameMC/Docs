@@ -96,40 +96,48 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: '文档',
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              label: '用户文档',
+              to: '/docs/user-doc/intro',
+            },
+            {
+              label: '开发文档',
+              to: '/docs/dev-doc/intro',
+            },
+            {
+              label: '更新日志',
+              to: '/blog',
             },
           ],
         },
         {
-          title: 'Community',
+          title: '模组下载',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: 'MC 百科',
+              href: 'https://www.mcmod.cn',
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              label: 'Modrinth',
+              href: 'https://modrinth.com',
             },
             {
-              label: 'Twitter',
+              label: 'CurseForge',
               href: 'https://twitter.com/docusaurus',
             },
           ],
         },
         {
-          title: 'More',
+          title: '相关链接',
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
+              label: '文档 GitHub',
+              href: 'https://github.com/AyameMC/Docs',
             },
             {
-              label: 'GitHub',
+              label: 'Ayame GitHub',
               href: 'https://github.com/AyameMC/Ayame',
             },
           ],
