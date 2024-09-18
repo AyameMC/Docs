@@ -82,13 +82,13 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'userDocSidebar',
           position: 'left',
-          label: 'User doc',
+          label: '用户文档',
         },
         {
           type: 'docSidebar',
           sidebarId: 'devDocSidebar',
           position: 'left',
-          label: 'Dev doc',
+          label: '开发文档',
         },
         // {to: '/blog', label: 'Blog', position: 'left'},
         {
