@@ -1,19 +1,19 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
+bug_fix:
+  label: Bug 修复
+  permalink: /bug-fix
+  description: 小型 Bug 修复
 
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
+feature_addition:
+  label: 新功能
+  permalink: /feature-addition
+  description: 新增功能
 
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
+major_update:
+  label: 大版本更新
+  permalink: /major-update
+  description: 重大更新
 
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+critical_bug_fix:
+  label: 致命漏洞修复
+  permalink: /critical-bug-fix
+  description: 紧急修复
