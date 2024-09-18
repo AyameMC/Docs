@@ -1,19 +1,15 @@
 bug_fix:
-  label: Bug 修复
+  label: 小型 Bug 修复
   permalink: /bug-fix
-  description: 小型 Bug 修复
 
 feature_addition:
-  label: 新功能
+  label: 新增功能
   permalink: /feature-addition
-  description: 新增功能
 
 major_update:
   label: 大版本更新
   permalink: /major-update
-  description: 重大更新
 
 critical_bug_fix:
-  label: 致命漏洞修复
+  label: 紧急修补
   permalink: /critical-bug-fix
-  description: 紧急修复
