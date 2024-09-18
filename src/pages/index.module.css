@@ -21,3 +21,8 @@
   align-items: center;
   justify-content: center;
 }
+
+.customLogo {
+    width: 140px;
+    height: 140px; /* 如果需要高度一致，也可以设置 */
+}
