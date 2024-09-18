@@ -2,7 +2,7 @@
 slug: welcome
 title: Welcome
 authors: [happyrespawnanchor, csneko]
-tags: [facebook, hello, docusaurus]
+tags: [feature_addition, major_update, bug_fix]
 ---
 
 [Docusaurus blogging features](https://docusaurus.io/docs/blog) are powered by the [blog plugin](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-blog).
