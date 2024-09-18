@@ -24,5 +24,15 @@
 
 .logo {
     width: 140px;
-    height: 140px; /* 如果需要高度一致，也可以设置 */
+    height: 140px;
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
