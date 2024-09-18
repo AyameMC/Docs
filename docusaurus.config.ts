@@ -113,7 +113,7 @@ const config: Config = {
           ],
         },
         {
-          title: '模组下载',
+          title: '社群',
           items: [
             {
               label: 'MC 百科',
