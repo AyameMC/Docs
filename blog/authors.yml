@@ -1,23 +1,13 @@
-yangshun:
-  name: Yangshun Tay
-  title: Front End Engineer @ Facebook
+happyrespawnanchor:
+  name: HappyRespawnanchor
   url: https://github.com/yangshun
-  image_url: https://github.com/yangshun.png
-  page: true
+  image_url: https://github.com/HappyRespawnanchor.png
   socials:
-    x: yangshunz
-    github: yangshun
+    github: happyrespawnanchor
 
-slorber:
-  name: Sébastien Lorber
-  title: Docusaurus maintainer
+csneko:
+  name: Crystal Neko
   url: https://sebastienlorber.com
-  image_url: https://github.com/slorber.png
-  page:
-    # customize the url of the author page at /blog/authors/<permalink>
-    permalink: '/all-sebastien-lorber-articles'
+  image_url: https://github.com/CSneko.png
   socials:
-    x: sebastienlorber
-    linkedin: sebastienlorber
-    github: slorber
-    newsletter: https://thisweekinreact.com
+    github: csneko
