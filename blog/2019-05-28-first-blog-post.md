@@ -2,7 +2,7 @@
 slug: first-blog-post
 title: First Blog Post
 authors: [happyrespawnanchor, csneko]
-tags: [hola, docusaurus]
+tags: [major_update, feature_addition]
 ---
 
 Lorem ipsum dolor sit amet...
