@@ -125,7 +125,7 @@ const config: Config = {
             },
             {
               label: 'CurseForge',
-              href: 'https://twitter.com/docusaurus',
+              href: 'https://curseforge.com',
             },
           ],
         },
