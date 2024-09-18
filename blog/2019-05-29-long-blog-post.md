@@ -2,7 +2,7 @@
 slug: long-blog-post
 title: Long Blog Post
 authors: csneko
-tags: [hello, docusaurus]
+tags: [bug_fix, critical_bug_fix]
 ---
 
 This is the summary of a very long blog post,
