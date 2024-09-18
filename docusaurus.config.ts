@@ -84,7 +84,7 @@ const config: Config = {
           position: 'left',
           label: '开发文档',
         },
-        {to: '/blog', label: '更新日志', position: 'left'},
+        {to: '/blog', label: '更新日志', position: 'right'},
         {
           href: 'https://github.com/AyameMC/Ayame',
           label: 'GitHub',
