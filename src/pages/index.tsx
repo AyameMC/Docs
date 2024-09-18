@@ -13,7 +13,7 @@ function HomepageHeader() {
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
         {/* 默认 SVG logo */}
-        <img src="static/img/logo.svg" alt="Logo" className={styles.logo} />
+        <img src="@site/static/img/logo.svg" alt="Logo" className={styles.logo} />
         
         {/* 自定义 SVG 添加方式 */}
         {/* 
