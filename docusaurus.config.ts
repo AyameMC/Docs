@@ -78,6 +78,18 @@ const config: Config = {
           position: 'left',
           label: 'Tutorial',
         },
+        {
+          type: 'docSidebar',
+          sidebarId: 'userDocSidebar',
+          position: 'left',
+          label: '用户文档',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'devDocSidebar',
+          position: 'left',
+          label: '开发文档',
+        },
         // {to: '/blog', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/facebook/docusaurus',
