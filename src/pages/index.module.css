@@ -22,7 +22,7 @@
   justify-content: center;
 }
 
-.customLogo {
+.logo {
     width: 140px;
     height: 140px; /* 如果需要高度一致，也可以设置 */
 }
