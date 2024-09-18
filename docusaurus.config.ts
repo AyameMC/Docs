@@ -96,7 +96,7 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: '文档',
+          title: '页面',
           items: [
             {
               label: '用户文档',
