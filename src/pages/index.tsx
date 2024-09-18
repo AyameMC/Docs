@@ -12,16 +12,16 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        {/* 默认 SVG logo */}
-        <img src="@site/static/img/logo.svg" alt="Logo" className={styles.logo} />
+        {/* 导入 SVG logo */}
+        <img src={require('@site/static/img/logo.svg').default} alt="Logo" className={styles.logo} />
         
-        {/* 自定义 SVG 添加方式 */}
+        {/* 自定义 SVG 添加方式（示例） */}
         {/* 
         <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
           <circle cx="50" cy="50" r="40" fill="blue" />
         </svg>
         */}
-        
+
         <Heading as="h1" className="hero__title">
           {siteConfig.title}
         </Heading>
