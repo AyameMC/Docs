@@ -1,6 +1,3 @@
-
-
-
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -16,7 +13,7 @@ function HomepageHeader() {
       <div className="container">
         <LogoSvg className={styles.logo} />
         <Heading as="h1" className="hero__title" style={{ color: 'var(--ifm-hero-text-color)' }}>
-          {siteConfig.title}
+          Ayame
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
@@ -24,6 +21,13 @@ function HomepageHeader() {
             className="button button--secondary button--lg"
             to="/docs/user-doc/intro">
             用户文档
+          </Link>
+        </div>
+        <div className={styles.buttons}>
+          <Link
+            className="button button--secondary button--lg"
+            to="/docs/dev-doc/intro">
+            开发文档
           </Link>
         </div>
       </div>
