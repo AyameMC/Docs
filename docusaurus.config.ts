@@ -1,5 +1,5 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
@@ -84,12 +84,16 @@ const config: Config = {
           position: 'left',
           label: '开发文档',
         },
-        {to: '/blog', label: '更新日志', position: 'right'},
+        { to: '/blog', label: '更新日志', position: 'right' },
         {
           href: 'https://github.com/AyameMC/Ayame',
           label: 'GitHub',
           position: 'right',
         },
+        {
+          type: 'localeDropdown',
+          position: 'left'
+        }
       ],
     },
     footer: {
