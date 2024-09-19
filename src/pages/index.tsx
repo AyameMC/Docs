@@ -16,7 +16,7 @@ function HomepageHeader() {
           Ayame
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
-          <div className={styles.buttons}>
+          <div className={styles.buttonUserDoc}>
   <Link
     className="button button--secondary button--lg"
     to="/docs/user-doc/intro">
@@ -24,7 +24,7 @@ function HomepageHeader() {
   </Link>
 </div>
 <div style={{ height: '16px' }} /> {/* 空隙 */}
-<div className={styles.buttons}>
+<div className={styles.buttonDevDoc}>
   <Link
     className="button button--secondary button--lg"
     to="/docs/dev-doc/intro">
