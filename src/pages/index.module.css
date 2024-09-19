@@ -32,11 +32,10 @@
 }
 
 
-
 .logo {
     width: 140px;
     height: auto;
-    animation: rotateAndShake 2.1s linear infinite;
+    animation: rotateAndShake 2.5s linear infinite;
 }
 
 @keyframes rotateAndShake {
@@ -55,15 +54,4 @@
     100% {
         transform: rotate(360deg) translateX(0);
     }
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-10px);
-    }
-    60% {
-        transform: translateY(-5px);
-    }
-}
 }
