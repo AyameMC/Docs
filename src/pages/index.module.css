@@ -1,14 +1,10 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
 .heroBanner {
     padding: 4rem 0;
     text-align: center;
     position: relative;
     overflow: hidden;
     --ifm-hero-text-color: #9955EE;
-    animation: shake 3s ease-in-out infinite;
+    animation: shake 5s ease-in-out infinite; /* 增加时长 */
 }
 
 @media screen and (max-width: 996px) {
@@ -43,12 +39,12 @@
         transform: translateX(0);
     }
     25% {
-        transform: translateX(-10px);
+        transform: translateX(-30px); /* 增加幅度 */
     }
     50% {
-        transform: translateX(10px);
+        transform: translateX(30px); /* 增加幅度 */
     }
     75% {
-        transform: translateX(-10px);
+        transform: translateX(-30px); /* 增加幅度 */
     }
 }
