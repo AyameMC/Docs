@@ -9,6 +9,13 @@
     animation: none; /* 覆盖第二段的 animation */
 }
 
+.hero{
+    --ifm-hero-text-color:#95e;
+    background: none;
+    /* height: calc(max(24em, 60vh)); */
+    /* transform-origin: 46.9% 53%; */
+}
+
 .logo:hover {
     animation: logo_hover_rotate 1s; /* 使用第一段的 hover 动画 */
 }
@@ -26,10 +33,26 @@
     }
 }
 
+.main-wrapper{
+    background:
+        linear-gradient(0deg,#ffc0ff80,#0000),
+        linear-gradient(135deg,#ffc0cf,#cfc0ff);
+}
+
 .buttons {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.hero{
+    --ifm-hero-text-color:#95e;
+    background: none;
+    /* height: calc(max(24em, 60vh)); */
+    /* transform-origin: 46.9% 53%; */
+}
+.footer--dark {
+    --ifm-footer-background-color: #383046;
 }
 
 @keyframes logo_hover_rotate {
