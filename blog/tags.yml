@@ -3,13 +3,17 @@ bug_fix:
   permalink: /bug-fix
 
 feature_addition:
-  label: 新增功能
+  label: 新功能
   permalink: /feature-addition
 
 major_update:
-  label: 大版本更新
+  label: 大型更新
   permalink: /major-update
 
 critical_bug_fix:
   label: 紧急安全修补
   permalink: /critical-bug-fix
+
+dev_preview:
+  label: 开发预览
+  permalink: /dev-preview
