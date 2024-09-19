@@ -4,12 +4,7 @@
  */
 
 
-.hero{
-    --ifm-hero-text-color:rgb(238, 85, 174);
-    background: none;
-    /* height: calc(max(24em, 60vh)); */
-    /* transform-origin: 46.9% 53%; */
-}
+
 /**
  * CSS files with the .module.css suffix will be treated as CSS modules
  * and scoped locally.
@@ -20,6 +15,7 @@
     text-align: center;
     position: relative;
     overflow: hidden;
+    --ifm-hero-text-color:rgb(238, 85, 174);
   }
   
   @media screen and (max-width: 996px) {
