@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Ayame Docs',
   tagline: '由 GeckoLib 驱动的玩家模型自定义模组。',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/logo.svg',
 
   // Set the production url of your site here
   url: 'https://docs.ayame.cneko.org',
