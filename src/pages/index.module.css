@@ -32,7 +32,7 @@
   
   .logo {
       width: 140px;
-      height: 140px;
+      height: auto;
       animation: rotate 2s linear infinite;
   }
   
