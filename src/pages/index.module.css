@@ -16,10 +16,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: bounce 1s infinite;
+    animation: bounce infinite;
 }
 
-@keyframes bounce {
+.button:nth-child(1) {
+    animation-name: bounce1; /* 第一个按钮使用bounce1动画 */
+}
+
+.button:nth-child(2) {
+    animation-name: bounce2; /* 第二个按钮使用bounce2动画 */
+}
+
+@keyframes bounce1 {
     0%, 20%, 50%, 80%, 100% {
         transform: translateY(0);
     }
@@ -28,6 +36,18 @@
     }
     60% {
         transform: translateY(-5px);
+    }
+}
+
+@keyframes bounce2 {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    30% {
+        transform: translateY(-15px);
+    }
+    70% {
+        transform: translateY(-7px);
     }
 }
 
