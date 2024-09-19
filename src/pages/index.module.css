@@ -29,13 +29,13 @@
         transform: rotate(0deg) translateX(0);
     }
     25% {
-        transform: rotate(90deg) translateX(-5px);
+        transform: rotate(90deg) translateX(-15px);
     }
     50% {
         transform: rotate(180deg) translateX(0);
     }
     75% {
-        transform: rotate(270deg) translateX(5px);
+        transform: rotate(270deg) translateX(15px);
     }
     100% {
         transform: rotate(360deg) translateX(0);
