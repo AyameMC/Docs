@@ -16,20 +16,22 @@ function HomepageHeader() {
           Ayame
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/user-doc/intro">
-            用户文档
-          </Link>
-        </div>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/dev-doc/intro">
-            开发文档
-          </Link>
-        </div>
+          <div className={styles.buttons}>
+  <Link
+    className="button button--secondary button--lg"
+    to="/docs/user-doc/intro">
+    用户文档
+  </Link>
+</div>
+<div style={{ height: '16px' }} /> {/* 空隙 */}
+<div className={styles.buttons}>
+  <Link
+    className="button button--secondary button--lg"
+    to="/docs/dev-doc/intro">
+    开发文档
+  </Link>
+</div>
+
       </div>
     </header>
   );
