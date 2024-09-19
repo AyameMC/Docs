@@ -15,7 +15,7 @@
     text-align: center;
     position: relative;
     overflow: hidden;
-    --ifm-hero-text-color:rgb(238, 85, 174);
+    --ifm-hero-text-color:#9955EE
   }
   
   @media screen and (max-width: 996px) {
