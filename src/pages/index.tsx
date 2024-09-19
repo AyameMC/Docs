@@ -37,15 +37,10 @@ export default function Home(): JSX.Element {
     <Layout
       title={`主页`}
       description="Description will go into a meta tag in <head />">
-      <div className={styles.mainWrapper}>
         <HomepageHeader />
         {/* <main>
           { <HomepageFeatures /> }
         </main> */}
-      </div>
-       {/* <main>
-         { <HomepageFeatures /> }
-       </main> */}
     </Layout>
   );
 }
