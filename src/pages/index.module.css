@@ -9,6 +9,9 @@
  * CSS files with the .module.css suffix will be treated as CSS modules
  * and scoped locally.
  */
+.footer--dark {
+    --ifm-footer-background-color: #383046;
+}
 
  .heroBanner {
     padding: 4rem 0;
