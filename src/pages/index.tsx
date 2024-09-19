@@ -12,7 +12,7 @@ function HomepageHeader() {
   
   return (
     <header className={clsx('hero hero--primary', styles.hero)}>
-      <div className={styles.heroBanner}>
+      <div className=container>
         <LogoSvg className={styles.logo} />
         <Heading as="h1" className="hero__title" style={{ color: 'var(--ifm-hero-text-color)' }}>
           {siteConfig.title}
