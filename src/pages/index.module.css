@@ -4,8 +4,6 @@
     position: relative;
     overflow: hidden;
     --ifm-hero-text-color: #9955EE;
-    animation: shake 5s ease-in-out infinite; /* 增加时长 */
-    z-index: 1; /* 确保内容在背景之上 */
 }
 
 @media screen and (max-width: 996px) {
@@ -23,42 +21,23 @@
 .logo {
     width: 140px;
     height: auto;
-    animation: rotate 2s linear infinite;
-}
-
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+    animation: shake 0.5s ease-in-out infinite;
 }
 
 @keyframes shake {
     0%, 100% {
         transform: translateX(0);
     }
-    25% {
-        transform: translateX(-30px); /* 增加幅度 */
+    20% {
+        transform: translateX(-10px);
     }
-    50% {
-        transform: translateX(30px); /* 增加幅度 */
+    40% {
+        transform: translateX(10px);
     }
-    75% {
-        transform: translateX(-30px); /* 增加幅度 */
+    60% {
+        transform: translateX(-5px);
     }
-}
-
-/* 添加一个背景元素，保持不动 */
-.heroBanner::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('your-background-image.jpg') no-repeat center center; /* 替换为你的背景图 */
-    background-size: cover; /* 确保背景填满 */
-    z-index: -1; /* 背景在内容后面 */
+    80% {
+        transform: translateX(5px);
+    }
 }
