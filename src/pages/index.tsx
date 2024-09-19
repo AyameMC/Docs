@@ -35,9 +35,9 @@ export default function Home(): JSX.Element {
       title={`主页`}
       description="Description will go into a meta tag in <head />">
       <HomepageHeader />
-       <main>
-         {/* <HomepageFeatures /> */}
-       </main>
+       {/* <main>
+         { <HomepageFeatures /> }
+       </main> */}
     </Layout>
   );
 }
