@@ -3,69 +3,48 @@
  * and scoped locally.
  */
 
-.logo {
-    width: 140px;
-    height: auto;
-    animation: none; /* 覆盖第二段的 animation */
-}
 
 .hero{
-    --ifm-hero-text-color:#95e;
+    --ifm-hero-text-color:rgb(238, 85, 174);
     background: none;
     /* height: calc(max(24em, 60vh)); */
     /* transform-origin: 46.9% 53%; */
 }
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
 
-.logo:hover {
-    animation: logo_hover_rotate 1s; /* 使用第一段的 hover 动画 */
-}
-
-.heroBanner {
+ .heroBanner {
     padding: 4rem 0;
     text-align: center;
     position: relative;
     overflow: hidden;
-}
-
-@media screen and (max-width: 996px) {
+  }
+  
+  @media screen and (max-width: 996px) {
     .heroBanner {
-        padding: 2rem;
+      padding: 2rem;
     }
-}
-
-.main-wrapper{
-    background:
-        linear-gradient(0deg,#ffc0ff80,#0000),
-        linear-gradient(135deg,#ffc0cf,#cfc0ff);
-}
-
-.buttons {
+  }
+  
+  .buttons {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.hero{
-    --ifm-hero-text-color:#95e;
-    background: none;
-    /* height: calc(max(24em, 60vh)); */
-    /* transform-origin: 46.9% 53%; */
-}
-.footer--dark {
-    --ifm-footer-background-color: #383046;
-}
-
-@keyframes logo_hover_rotate {
-    100% {
-        rotate: 1turn;
-    }
-}
-
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
+  }
+  
+  .logo {
+      width: 140px;
+      height: 140px;
+      animation: rotate 2s linear infinite;
+  }
+  
+  @keyframes rotate {
+      from {
+          transform: rotate(0deg);
+      }
+      to {
+          transform: rotate(360deg);
+      }
+  }
