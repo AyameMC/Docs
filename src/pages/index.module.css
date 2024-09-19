@@ -1,33 +1,19 @@
-.heroBanner {
-    padding: 4rem 0;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    --ifm-hero-text-color: #9955EE;
-}
-
-@media screen and (max-width: 996px) {
-    .heroBanner {
-        padding: 2rem;
-    }
-}
-
 .buttonUserDoc {
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: bounceUserDoc 1s infinite;
+    animation: bounceAndShakeUserDoc 1s infinite;
 }
 
-@keyframes bounceUserDoc {
+@keyframes bounceAndShakeUserDoc {
     0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
+        transform: translate(0, 0);
     }
     40% {
-        transform: translateY(-10px);
+        transform: translate(-5px, -10px); /* 左上角 */
     }
     60% {
-        transform: translateY(-5px);
+        transform: translate(5px, -5px); /* 右上角 */
     }
 }
 
@@ -35,42 +21,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: bounceDevDoc 1s infinite;
+    animation: bounceAndShakeDevDoc 1s infinite;
 }
 
-@keyframes bounceDevDoc {
+@keyframes bounceAndShakeDevDoc {
     0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
+        transform: translate(0, 0);
     }
     40% {
-        transform: translateY(-13px);
+        transform: translate(-7px, -13px); /* 左上角 */
     }
     60% {
-        transform: translateY(-7px);
-    }
-}
-
-
-.logo {
-    width: 140px;
-    height: auto;
-    animation: rotateAndShake 2.5s linear infinite;
-}
-
-@keyframes rotateAndShake {
-    0% {
-        transform: rotate(0deg) translateX(0);
-    }
-    25% {
-        transform: rotate(90deg) translateX(-15px);
-    }
-    50% {
-        transform: rotate(180deg) translateX(0);
-    }
-    75% {
-        transform: rotate(270deg) translateX(15px);
-    }
-    100% {
-        transform: rotate(360deg) translateX(0);
+        transform: translate(7px, -7px); /* 右上角 */
     }
 }
