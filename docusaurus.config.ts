@@ -73,6 +73,10 @@ const config: Config = {
       },
       items: [
         {
+          type: 'localeDropdown',
+          position: 'right'
+        },
+        {
           type: 'docSidebar',
           sidebarId: 'userDocSidebar',
           position: 'left',
@@ -89,10 +93,6 @@ const config: Config = {
           href: 'https://github.com/AyameMC/Ayame',
           label: 'GitHub',
           position: 'right',
-        },
-        {
-          type: 'localeDropdown',
-          position: 'right'
         }
       ],
     },
