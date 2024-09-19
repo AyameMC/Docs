@@ -92,7 +92,7 @@ const config: Config = {
         },
         {
           type: 'localeDropdown',
-          position: 'left'
+          position: 'right'
         }
       ],
     },
