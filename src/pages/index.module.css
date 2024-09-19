@@ -9,9 +9,9 @@
  * CSS files with the .module.css suffix will be treated as CSS modules
  * and scoped locally.
  */
-main-wrapper { 
+.main-wrapper { 
   background-color: #ffc0cf;
-   }
+}
 
  .heroBanner {
     padding: 4rem 0;
