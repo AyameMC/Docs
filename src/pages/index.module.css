@@ -2,45 +2,53 @@
  * CSS files with the .module.css suffix will be treated as CSS modules
  * and scoped locally.
  */
-
-
-
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
-
- .heroBanner {
+.heroBanner {
     padding: 4rem 0;
     text-align: center;
     position: relative;
     overflow: hidden;
-    --ifm-hero-text-color:#9955EE
-  }
-  
-  @media screen and (max-width: 996px) {
+    --ifm-hero-text-color: #9955EE;
+    animation: shake 3s ease-in-out infinite;
+}
+
+@media screen and (max-width: 996px) {
     .heroBanner {
-      padding: 2rem;
+        padding: 2rem;
     }
-  }
-  
-  .buttons {
+}
+
+.buttons {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
-  .logo {
-      width: 140px;
-      height: auto;
-      animation: rotate 2s linear infinite;
-  }
-  
-  @keyframes rotate {
-      from {
-          transform: rotate(0deg);
-      }
-      to {
-          transform: rotate(360deg);
-      }
-  }
+}
+
+.logo {
+    width: 140px;
+    height: auto;
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-10px);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+    75% {
+        transform: translateX(-10px);
+    }
+}
