@@ -21,7 +21,7 @@
 .logo {
     width: 140px;
     height: auto;
-    animation: rotateAndShake 2s linear infinite;
+    animation: rotateAndShake 2.5s linear infinite;
 }
 
 @keyframes rotateAndShake {
