@@ -305,5 +305,14 @@
   "theme.tags.tagsPageTitle": {
     "message": "标签",
     "description": "The title of the tag list page"
+  },
+  "用户文档": {
+    "message": "用户文档"
+  },
+  "开发文档": {
+    "message": "开发文档"
+  },
+  "GeckoLib 驱动的自定义玩家模型模组": {
+    "message": "GeckoLib 驱动的自定义玩家模型模组"
   }
 }

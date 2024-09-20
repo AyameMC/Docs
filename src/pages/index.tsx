@@ -17,7 +17,9 @@ function HomepageHeader() {
           Ayame
         </Heading>
         <p className="hero__subtitle">
-        <Translate>{siteConfig.tagline}</Translate>
+        <Translate>
+        GeckoLib 驱动的自定义玩家模型模组
+        </Translate>
           </p>
         <div className={styles.buttonUserDoc}>
           <Link

@@ -305,5 +305,14 @@
   "theme.tags.tagsPageTitle": {
     "message": "Tags",
     "description": "The title of the tag list page"
+  },
+  "用户文档": {
+    "message": "User Documentation"
+  },
+  "开发文档": {
+    "message": "Development Documentation"
+  },
+  "GeckoLib 驱动的自定义玩家模型模组": {
+    "message": "Custom player model mod. Powered by GeckoLib. "
   }
 }

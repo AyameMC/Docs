@@ -1,0 +1,19 @@
+bug_fix:
+  label: Minor Bug Fixes
+  permalink: /bug-fix
+
+feature_addition:
+  label: New Feature
+  permalink: /feature-addition
+
+major_update:
+  label: Major Update
+  permalink: /major-update
+
+critical_bug_fix:
+  label: Emergency Security Fix
+  permalink: /critical-bug-fix
+
+dev_preview:
+  label: Development Preview
+  permalink: /dev-preview
