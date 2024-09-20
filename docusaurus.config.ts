@@ -147,7 +147,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Ayams Docs. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Ayams Docs. Built with Docusaurus.<br>Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft.`,
     },
     prism: {
       theme: prismThemes.github,
