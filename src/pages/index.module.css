@@ -19,6 +19,14 @@
     animation: bounceAndShakeUserDoc 1s infinite;
 }
 
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* animation: bounceAndShakeUserDoc 1s infinite; */
+}
+
+
 @keyframes bounceAndShakeUserDoc {
     0%, 20%, 50%, 80%, 100% {
         transform: translate(0, 0);

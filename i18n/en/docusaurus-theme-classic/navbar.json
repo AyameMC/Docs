@@ -1,0 +1,26 @@
+{
+  "title": {
+    "message": "Ayame Docs",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "Ayame Logo",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.用户文档": {
+    "message": "User Documentation",
+    "description": "Navbar item with label 用户文档"
+  },
+  "item.label.开发文档": {
+    "message": "Development Documentation",
+    "description": "Navbar item with label 开发文档"
+  },
+  "item.label.更新日志": {
+    "message": "Change Log",
+    "description": "Navbar item with label 更新日志"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  }
+}

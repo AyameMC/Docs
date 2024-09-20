@@ -1,13 +1,17 @@
 happyrespawnanchor:
   name: 嗨皮的重生锚
   url: https://center.mcmod.cn/164790
-  image_url: https://docs.ayame.cneko.org/img/avatar/happyrespawnanchor.webp
+  image_url: /img/avatar/happyrespawnanchor.webp
+  page: true
   socials:
-    github: happyrespawnanchor
+    github: HappyRespawnanchor
+    mcmod : https://center.mcmod.cn/164790
 
 csneko:
   name: CrystalNeko
   url: https://center.mcmod.cn/786362/
-  image_url: https://docs.ayame.cneko.org/img/avatar/csneko.webp
+  image_url: /img/avatar/csneko.webp
+  page: true
   socials:
     github: csneko
+    mcmod : https://center.mcmod.cn/786362/

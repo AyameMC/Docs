@@ -6,6 +6,7 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
 import LogoSvg from '/static/img/logo.svg';
+import Translate from '@docusaurus/Translate';
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
@@ -15,12 +16,14 @@ function HomepageHeader() {
         <Heading as="h1" className="hero__title" style={{ color: 'var(--ifm-hero-text-color)' }}>
           Ayame
         </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <p className="hero__subtitle">
+        <Translate>{siteConfig.tagline}</Translate>
+          </p>
         <div className={styles.buttonUserDoc}>
           <Link
             className="button button--secondary button--lg"
             to="/docs/user-doc/intro">
-            用户文档
+            <Translate>用户文档</Translate>
           </Link>
         </div>
         <div style={{ height: '16px' }} /> {/* 空隙 */}
@@ -28,7 +31,7 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/dev-doc/intro">
-            开发文档
+            <Translate>开发文档</Translate>
           </Link>
         </div>
 
