@@ -8,11 +8,11 @@
     "description": "The alt text of navbar logo"
   },
   "item.label.用户文档": {
-    "message": "User Documentation",
+    "message": "User Docs",
     "description": "Navbar item with label 用户文档"
   },
   "item.label.开发文档": {
-    "message": "Development Documentation",
+    "message": "Development Docs",
     "description": "Navbar item with label 开发文档"
   },
   "item.label.更新日志": {
