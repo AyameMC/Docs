@@ -40,7 +40,7 @@
   --search-local-muted-color: #969faf; /* 保持一致的次要文本颜色 */
   
   /* 搜索结果激活时的颜色 */
-  --search-local-hit-active-color: #d226eb; /* 激活状态使用最深紫色 */
+  /* --search-local-hit-active-color: #d226eb;  */
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -68,5 +68,5 @@
   --search-local-highlight-color: var(--ifm-color-primary-light); /* 使用较亮的主色调 */
   
   /* 搜索结果激活时的颜色 */
-  --search-local-hit-active-color: var(--ifm-color-white); /* 深色模式下激活时为白色 */
+  /* --search-local-hit-active-color: var(--ifm-color-white); */
 }
