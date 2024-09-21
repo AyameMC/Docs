@@ -101,7 +101,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Ayame Docs. Docs licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/deed/">CC BY SA 4.0</a>. Built with <a href="https://docusaurus.io/">Docusaurus</a>.<br>Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Ayame Docs. Docs licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/deed/" target="_blank">CC BY SA 4.0</a>. Built with <a href="https://docusaurus.io/" target="_blank">Docusaurus</a>.<br>NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT`,
     },
     prism: {
       theme: prismThemes.github,
