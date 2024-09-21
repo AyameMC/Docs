@@ -15,6 +15,32 @@
   --ifm-color-primary-lightest: #fefcff;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  /* Local Search */
+    /* 搜索框背景 */
+  --search-local-modal-background: #fefcff; /* 主背景，配合主题最浅紫色 */
+  --search-local-modal-shadow: inset 1px 1px 0 0 hsla(0, 0%, 100%, 0.5), 0 3px 8px 0 rgba(221, 91, 240, 0.5); /* 阴影带有紫色调 */
+
+  /* 搜索框宽度 */
+  --search-local-modal-width: 560px;
+  --search-local-modal-width-sm: 340px;
+  
+  /* 搜索结果间距和高度 */
+  --search-local-spacing: 12px;
+  --search-local-hit-height: 56px;
+  
+  /* 搜索结果背景和文字颜色 */
+  --search-local-hit-background: #fff; /* 搜索结果背景保持白色 */
+  --search-local-hit-color: #444950; /* 搜索结果文本颜色 */
+  --search-local-hit-shadow: 0 1px 3px 0 rgba(221, 91, 240, 0.2); /* 轻微紫色阴影 */
+  
+  /* 高亮颜色 */
+  --search-local-highlight-color: var(--ifm-color-primary); /* 使用主题的主色调 */
+  
+  /* 灰色文本颜色 */
+  --search-local-muted-color: #969faf; /* 保持一致的次要文本颜色 */
+  
+  /* 搜索结果激活时的颜色 */
+  --search-local-hit-active-color: #d226eb; /* 激活状态使用最深紫色 */
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -27,4 +53,20 @@
   --ifm-color-primary-lighter: #f3c7fa;
   --ifm-color-primary-lightest: #fefcff;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+
+  /* Local Search */
+  --search-local-modal-background: var(--ifm-background-color); /* 背景色为深色模式下的默认背景色 */
+  --search-local-modal-shadow: inset 1px 1px 0 0 #2c2e40, 0 3px 8px 0 #000309; /* 深色阴影 */
+  
+  /* 搜索结果背景 */
+  --search-local-hit-background: var(--ifm-color-emphasis-100); /* 深色背景 */
+  
+  /* 搜索结果文本颜色 */
+  --search-local-hit-color: var(--ifm-font-color-base);
+  
+  /* 高亮颜色 */
+  --search-local-highlight-color: var(--ifm-color-primary-light); /* 使用较亮的主色调 */
+  
+  /* 搜索结果激活时的颜色 */
+  --search-local-hit-active-color: var(--ifm-color-white); /* 深色模式下激活时为白色 */
 }
