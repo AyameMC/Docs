@@ -53,7 +53,7 @@ const config: Config = {
       {
         hashed: true,
         language: ["en", "zh"],
-        searchBarShortcutHint: false,
+        searchBarShortcutHint: true,
       },
     ],
   ],
