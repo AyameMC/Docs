@@ -36,15 +36,4 @@ def hello_world():
 ```
 
 </TabItem>
-<TabItem value="java" label="Java">
-
-```java
-class HelloWorld {
-  public static void main(String args[]) {
-    System.out.println("Hello, World");
-  }
-}
-```
-
-</TabItem>
 </Tabs>
