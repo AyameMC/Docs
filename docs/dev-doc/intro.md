@@ -19,8 +19,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs>
+<TabItem value="groovy" label="Groovy">
 
-```grovy title="build.gradle"
+```groovy title="build.gradle"
 repositories {
     maven {
         name = 'Ayame Maven Repo'
