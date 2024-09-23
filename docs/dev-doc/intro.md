@@ -27,7 +27,6 @@ repositories {
         url 'https://maven.ayamemc.org/'
     }
 }
-
 ```
 
 </TabItem>
