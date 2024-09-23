@@ -19,20 +19,27 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs>
-<TabItem value="js" label="JavaScript">
 
-```js
-function helloWorld() {
-  console.log('Hello, world!');
+```grovy title="build.gradle"
+repositories {
+    maven {
+        name = 'Ayame Maven Repo'
+        url 'https://maven.ayamemc.org/'
+    }
 }
+
 ```
 
 </TabItem>
-<TabItem value="py" label="Python">
+<TabItem value="kotlin" label="Kotlin">
 
-```py
-def hello_world():
-  print("Hello, world!")
+```kotlin title="build.gradle.kts"
+repositories {
+    maven {
+        name = "Ayame Maven Repo"
+        url "https://maven.ayamemc.org/"
+    }
+}
 ```
 
 </TabItem>
