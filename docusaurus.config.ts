@@ -73,9 +73,6 @@ const config: Config = {
         { to: '/blog', label: '更新日志', position: 'right' },
         { href: 'https://github.com/AyameMC/Ayame', label: 'GitHub', position: 'right' },
       ],
-      prism: {
-        additionalLanguages: ['java', 'groovy', 'gradle'],
-      },
     },
     footer: {
       style: 'dark',
@@ -109,6 +106,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+      additionalLanguages: ['java', 'groovy', 'gradle'],
     },
   },
 };
