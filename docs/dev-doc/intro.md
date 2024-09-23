@@ -19,27 +19,32 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs>
-<TabItem value="grovy" label="Grovy">
+<TabItem value="js" label="JavaScript">
 
-```groovy title="build.gradle"
-// 这是 build.gradle 中的 repositories 块，没有就创建一个
-repositories {
-    maven {
-        name = 'Ayame Maven Repo'
-        url 'https://maven.ayamemc.org/'
-    }
+```js
+function helloWorld() {
+  console.log('Hello, world!');
 }
 ```
 
 </TabItem>
-<TabItem value="kotlin" label="Kotlin">
+<TabItem value="py" label="Python">
 
-```kotlin title="build.gradle.kts"
-// 这是 build.gradle.kts 中的 repositories 块，没有就创建一个
-repositories {
-    maven {
-        name = "Ayame Maven Repo"
-        url "https://maven.ayamemc.org/"
-    }
+```py
+def hello_world():
+  print("Hello, world!")
+```
+
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java
+class HelloWorld {
+  public static void main(String args[]) {
+    System.out.println("Hello, World");
+  }
 }
 ```
+
+</TabItem>
+</Tabs>
