@@ -4,8 +4,7 @@
 在查阅开发文档时，你需要具备以下基础知识：
 
 1. 基本的 Java 概念
-2. 普通的 Minecraft 游戏常识
-3. 熟悉 Fabric 或 (Neo)Forge 的 Minecraft 模组开发
+2. 熟悉 Fabric 或 (Neo)Forge 的 Minecraft 模组开发
 
 如果你不太了解，建议先通过一些[模组开发教程](https://wiki.mcjty.eu/modding/index.php?title=YouTube-Tutorials)进行学习。
 :::
