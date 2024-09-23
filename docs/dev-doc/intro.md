@@ -1,6 +1,3 @@
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # 开发入门
 :::tip
 
@@ -17,6 +14,9 @@ Ayame 的 JavaDoc 与模块化使得您可以轻松为其开发扩展模组。
 ---
 
 要将 Ayame 导入您的项目以为其制作扩展，请先在 `build.gradle` 中添加以下内容：
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 <Tabs>
 <TabItem value="grovy" label="Grovy">
