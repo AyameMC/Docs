@@ -19,7 +19,8 @@ Ayame 的 JavaDoc 与模块化使得您可以轻松为其开发扩展模组。
 要将 Ayame 导入您的项目以为其制作扩展，请先在 `build.gradle` 中添加以下内容：
 
 <Tabs>
-<TabItem value="kts" label="Kotlin">
+<TabItem value="grovy" label="Grovy">
+
 ```groovy title="build.gradle"
 // 这是 build.gradle 中的 repositories 块，没有就创建一个
 repositories {
