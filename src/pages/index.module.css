@@ -16,7 +16,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: bounceAndShakeUserDoc 1s infinite;
+    /* animation: bounceAndShakeUserDoc 1s infinite; */
 }
 
 .buttons {
@@ -43,7 +43,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: bounceAndShakeDevDoc 1s infinite;
+    /* animation: bounceAndShakeDevDoc 1s infinite; */
 }
 
 @keyframes bounceAndShakeDevDoc {
