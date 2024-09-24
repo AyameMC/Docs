@@ -53,7 +53,7 @@ const config: Config = {
       {
         hashed: true,
         language: ["en", "zh"],
-        searchBarPosition: "left",
+        searchBarPosition: "right",
       },
     ],
   ],
