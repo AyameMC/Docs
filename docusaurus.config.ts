@@ -53,7 +53,6 @@ const config: Config = {
       {
         hashed: true,
         language: ["en", "zh"],
-        searchBarPosition: "right",
       },
     ],
   ],
@@ -70,8 +69,8 @@ const config: Config = {
         // { type: 'docSidebar', sidebarId: 'userDocSidebar', position: 'left', label: '用户文档' },
         // { type: 'docSidebar', sidebarId: 'devDocSidebar', position: 'left', label: '开发文档' },
         { to: '/blog', label: '更新日志', position: 'right' },
-        { type: 'search', position: 'left',},
         { type: 'localeDropdown', position: 'right' },
+        { type: 'search', position: 'right',},
         // { href: 'https://github.com/AyameMC/Ayame', label: 'GitHub', position: 'right' },
       ],
     },
