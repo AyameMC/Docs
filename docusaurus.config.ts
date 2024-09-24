@@ -51,7 +51,6 @@ const config: Config = {
     [
       require.resolve("@easyops-cn/docusaurus-search-local"),
       {
-        searchBarPosition: "left",
         hashed: true,
         language: ["en", "zh"],
       },
@@ -71,6 +70,7 @@ const config: Config = {
         // { type: 'docSidebar', sidebarId: 'userDocSidebar', position: 'left', label: '用户文档' },
         // { type: 'docSidebar', sidebarId: 'devDocSidebar', position: 'left', label: '开发文档' },
         { to: '/blog', label: '更新日志', position: 'right' },
+        {type: 'search', position: 'left',},
         // { href: 'https://github.com/AyameMC/Ayame', label: 'GitHub', position: 'right' },
       ],
     },
