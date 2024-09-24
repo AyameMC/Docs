@@ -71,10 +71,7 @@ const config: Config = {
           label: 'Community',
           position: 'left',
           items: [
-            {
-              label: 'Facebook',
-              href: 'https://www.facebook.com',
-            },
+            { type: 'docSidebar', sidebarId: 'userDocSidebar', position: 'left', label: '用户文档' },
             // ... more items
           ],
         },
