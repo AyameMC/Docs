@@ -59,6 +59,11 @@ const config: Config = {
 
   themeConfig: {
     image: 'img/docusaurus-social-card.jpg',
+    colorMode: {
+      defaultMode: 'light',
+      disableSwitch: false,
+      respectPrefersColorScheme: true,
+    },
     navbar: {
       hideOnScroll: true,
       title: 'Ayame Docs',
@@ -66,9 +71,6 @@ const config: Config = {
         alt: 'Ayame Logo',
         src: 'img/logo.svg',
       },
-      defaultMode: 'light',
-      disableSwitch: false,
-      respectPrefersColorScheme: true,
       items: [
         
         // { type: 'docSidebar', sidebarId: 'userDocSidebar', position: 'left', label: '用户文档' },
