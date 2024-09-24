@@ -17,3 +17,7 @@ critical_bug_fix:
 dev_preview:
   label: 开发预览
   permalink: /dev-preview
+
+release:
+  label: 新版发布
+  permalink: /release
