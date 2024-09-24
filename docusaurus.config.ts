@@ -54,7 +54,7 @@ const config: Config = {
         hashed: true,
         language: ["en", "zh"],
         searchBarShortcutHint: true,
-        searchBarPosition: 'left',
+        searchBarPosition: 'right',
       },
     ],
   ],
