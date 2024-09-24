@@ -71,7 +71,12 @@ const config: Config = {
           label: 'Community',
           position: 'left',
           items: [
-            { type: 'docSidebar', sidebarId: 'userDocSidebar', position: 'left', label: '用户文档' },
+            {
+              type: 'docSidebar',
+              sidebarId: 'userDocSidebar',
+              position: 'left',
+              label: '用户文档',
+            },
             // ... more items
           ],
         },
