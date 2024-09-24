@@ -17,3 +17,7 @@ critical_bug_fix:
 dev_preview:
   label: Development Preview
   permalink: /dev-preview
+
+release:
+  label: New Version Release
+  permalink: /release
