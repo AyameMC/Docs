@@ -65,7 +65,7 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      hideOnScroll: false,
+      hideOnScroll: true,
       title: 'Ayame Docs',
       logo: {
         alt: 'Ayame Logo',
