@@ -60,6 +60,7 @@ const config: Config = {
   themeConfig: {
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
+      hideOnScroll: true,
       title: 'Ayame Docs',
       logo: {
         alt: 'Ayame Logo',
