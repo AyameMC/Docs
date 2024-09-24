@@ -77,7 +77,12 @@ const config: Config = {
               position: 'left',
               label: '用户文档',
             },
-            // ... more items
+            {
+              type: 'devSidebar',
+              sidebarId: 'devDocSidebar',
+              position: 'left',
+              label: '开发文档',
+            },
           ],
         },
         // { type: 'docSidebar', sidebarId: 'userDocSidebar', position: 'left', label: '用户文档' },
