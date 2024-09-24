@@ -65,6 +65,11 @@ const config: Config = {
         alt: 'Ayame Logo',
         src: 'img/logo.svg',
       },
+      colorMode: {
+        defaultMode: 'light',
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
+      },
       items: [
         
         // { type: 'docSidebar', sidebarId: 'userDocSidebar', position: 'left', label: '用户文档' },
