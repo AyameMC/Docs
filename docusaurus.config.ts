@@ -68,24 +68,25 @@ const config: Config = {
       items: [
         {
           type: 'dropdown',
-          label: '文档',
+          label: 'Community',
           position: 'left',
           items: [
-            { type: 'docSidebar', sidebarId: 'userDocSidebar', position: 'left', label: '用户文档' },
-            { type: 'docSidebar', sidebarId: 'devDocSidebar', position: 'left', label: '开发文档' },
+            {
+              label: 'Facebook',
+              href: 'https://www.facebook.com',
+            },
+            {
+              type: 'doc',
+              label: 'Social',
+              docId: 'social',
+            },
+            // ... more items
           ],
         },
         // { type: 'docSidebar', sidebarId: 'userDocSidebar', position: 'left', label: '用户文档' },
         // { type: 'docSidebar', sidebarId: 'devDocSidebar', position: 'left', label: '开发文档' },
-        {
-          type: 'dropdown',
-          label: '相关页面',
-          position: 'left',
-          items: [
-            { to: '/blog', label: '更新日志', position: 'right' },
-            { type: 'localeDropdown', position: 'right' },
-          ],
-        },
+        { to: '/blog', label: '更新日志', position: 'right' },
+        { type: 'localeDropdown', position: 'right' },
         // { type: 'search', position: 'right',},
         // { href: 'https://github.com/AyameMC/Ayame', label: 'GitHub', position: 'right' },
       ],
