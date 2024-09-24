@@ -75,11 +75,6 @@ const config: Config = {
               label: 'Facebook',
               href: 'https://www.facebook.com',
             },
-            {
-              type: 'doc',
-              label: 'Social',
-              docId: 'social',
-            },
             // ... more items
           ],
         },
