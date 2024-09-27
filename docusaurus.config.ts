@@ -72,7 +72,25 @@ const config: Config = {
         src: 'img/logo.svg',
       },
       items: [
-        
+        {
+          type: 'dropdown',
+          label: '文档',
+          position: 'left',
+          items: [
+            {
+              type: 'doc',
+              label: '用户文档',
+              docId: 'user-doc/intro',
+              //href: 'https://www.facebook.com',
+            },
+            {
+              type: 'doc',
+              label: '开发文档',
+              docId: 'dev-doc/intro',
+            },
+            // ... more items
+          ],
+        },
         // { type: 'docSidebar', sidebarId: 'userDocSidebar', position: 'left', label: '用户文档' },
         // { type: 'docSidebar', sidebarId: 'devDocSidebar', position: 'left', label: '开发文档' },
         { to: '/blog', label: '更新日志', position: 'right' },
@@ -112,8 +130,8 @@ const config: Config = {
     },
     prism: {
       defaultLanguage: 'java',
-      theme: prismThemes.github,
-      darkTheme: prismThemes.vsDark,
+      theme: prismThemes.nightOwlLight,
+      darkTheme: prismThemes.nightOwl,
       additionalLanguages: ['java', 'groovy', 'gradle'],
     },
   },
