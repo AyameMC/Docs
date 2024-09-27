@@ -1,0 +1,43 @@
+# Getting Started
+:::tip
+
+Before reading this document, you should have the following knowledge:
+
+1. Proficiency in Java
+2. Familiarity with Minecraft mod development
+:::
+
+Ayame's JavaDoc and modularity make it easy for you to develop extension modules for it.
+
+## Configuring Dependencies
+To import Ayame into your project for creating extensions, add the following to your `build.gradle`:
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+<TabItem value="groovy" label="Groovy">
+
+```groovy title="build.gradle"
+repositories {
+    maven {
+        name = 'Ayame Maven Repo'
+        url 'https://maven.ayamemc.org/'
+    }
+}
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin title="build.gradle.kts"
+repositories {
+    maven {
+        name = "Ayame Maven Repo"
+        url = uri("https://maven.ayamemc.org/")
+    }
+}
+```
+
+</TabItem>
+</Tabs>
