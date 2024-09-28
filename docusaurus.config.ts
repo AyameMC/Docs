@@ -7,7 +7,7 @@ const config: Config = {
   tagline: 'GeckoLib 驱动的自定义玩家模型模组',
   favicon: 'img/logo.png',
 
-  url: 'https://docs.ayame.cneko.org',
+  url: 'https://docs.ayamemc.org',
   baseUrl: '/',
 
   organizationName: 'AyameMC',
