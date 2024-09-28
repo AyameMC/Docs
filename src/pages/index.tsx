@@ -46,8 +46,8 @@ export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`主页`}
-      description="Description will go into a meta tag in <head />">
+      title={`Home Page`}
+      description="Documentation for the Custom player model mod Ayame <head/>">
       <HomepageHeader />
       {/* <main>
           { <HomepageFeatures /> }
