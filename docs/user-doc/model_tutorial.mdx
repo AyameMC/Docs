@@ -1,14 +1,18 @@
 # 模型创作教程
 理解 Ayame 的模型格式对模型创作者至关重要，以下是一个标准的 `metadata.json` 示例：
-
+:::warn
+`JSON` 标准不支持注释。
+:::
 ```json title="metadata.json"
 {
   "name": "example_model",
   "authors": [
     "Me!!"
   ],
-  "description": "Example Model.",
+  "description": "示例模型简介。",
+  // 强烈建议使用现成的许可证，例如 CC 协议，你也可以选择保留所有权利。
   "license": "CC0-1.0",
+  // 你可以把模型发布的网站填写在此处，例如你的模型发布视频地址，也可以同时填写多个。
   "links": [
     "https://example.org"
   ],
