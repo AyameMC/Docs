@@ -126,8 +126,8 @@ const config: Config = {
     },
     prism: {
       defaultLanguage: 'java',
-      theme: prismThemes.nightOwlLight,
-      darkTheme: prismThemes.nightOwl,
+      theme: prismThemes.oneLight,
+      darkTheme: prismThemes.oneDark,
       additionalLanguages: ['java', 'groovy', 'gradle'],
     },
   },
