@@ -42,5 +42,9 @@
   "link.item.label.Ayame GitHub": {
     "message": "Ayame GitHub",
     "description": "The label of footer link with label=Ayame GitHub linking to https://github.com/AyameMC/Ayame"
+  },
+  "copyright": {
+    "message": "Copyright © 2024 AyameMC. Docs licensed under <a href=\"https://creativecommons.org/publicdomain/zero/1.0/deed\" target=\"_blank\">CC0 1.0</a>. Built with <a href=\"https://docusaurus.io/\" target=\"_blank\">Docusaurus</a>.",
+    "description": "The footer copyright"
   }
 }

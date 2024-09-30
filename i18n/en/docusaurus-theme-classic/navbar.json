@@ -19,10 +19,6 @@
     "message": "Change Log",
     "description": "Navbar item with label 更新日志"
   },
-  "item.label.GitHub": {
-    "message": "GitHub",
-    "description": "Navbar item with label GitHub"
-  },
   "item.label.文档": {
     "message": "Documentation",
     "description": "Navbar item with label 文档"

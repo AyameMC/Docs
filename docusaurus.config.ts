@@ -81,7 +81,6 @@ const config: Config = {
               type: 'doc',
               label: '用户文档',
               docId: 'user-doc/intro',
-              //href: 'https://www.facebook.com',
             },
             {
               type: 'doc',
@@ -91,12 +90,9 @@ const config: Config = {
             // ... more items
           ],
         },
-        // { type: 'docSidebar', sidebarId: 'userDocSidebar', position: 'left', label: '用户文档' },
-        // { type: 'docSidebar', sidebarId: 'devDocSidebar', position: 'left', label: '开发文档' },
+
         { to: '/blog', label: '更新日志', position: 'right' },
         { type: 'localeDropdown', position: 'right' },
-        // { type: 'search', position: 'right',},
-        // { href: 'https://github.com/AyameMC/Ayame', label: 'GitHub', position: 'right' },
       ],
     },
     footer: {
