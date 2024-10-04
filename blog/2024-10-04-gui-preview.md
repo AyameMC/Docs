@@ -4,6 +4,5 @@ title: GUIn预览
 authors: [happyrespawnanchor]
 tags: [dev_preview]
 ---
-[]()
-()[24-10-04-gui-preview.webp]
+这是 Ayame GUI的最新开发进展
 <!-- truncate -->
