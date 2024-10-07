@@ -1,5 +1,5 @@
 ---
-slug: gui-preview
+slug: gui-preview2
 title: GUI 预览2
 authors: [happyrespawnanchor]
 tags: [dev_preview]
