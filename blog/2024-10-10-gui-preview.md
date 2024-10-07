@@ -1,6 +1,6 @@
 ---
 slug: gui-preview
-title: GUI 预览
+title: GUI 预览2
 authors: [happyrespawnanchor]
 tags: [dev_preview]
 ---
