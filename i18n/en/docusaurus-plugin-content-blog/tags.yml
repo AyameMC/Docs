@@ -21,3 +21,11 @@ dev_preview:
 release:
   label: New Version Release
   permalink: /release
+
+ayame_paperdoll:
+  label: Ayame PaperDoll
+  permalink: /ayame-paperdoll
+
+ayame:
+  label: Ayame
+  permalink: /ayame
