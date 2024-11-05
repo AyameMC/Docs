@@ -2,7 +2,7 @@
 slug: ayame-paperdoll-released
 title: Ayame 纸娃娃正式发布
 authors: [happyrespawnanchor]
-tags: [realse]
+tags: [release]
 ---
 今天，Ayame 纸娃娃通过了 Modrinth 审核（CurseForge 与 MC百科在昨天就过审了），它可以算是正式发布了。
 <!-- truncate -->
