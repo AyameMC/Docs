@@ -1,6 +1,6 @@
 ---
 slug: ayame-paperdoll-released
-title: Ayame Paperdoll Officially Released
+title: Ayame PaperDoll Officially Released
 authors: [happyrespawnanchor]
 tags: [ayame_paperdoll, release]
 ---
