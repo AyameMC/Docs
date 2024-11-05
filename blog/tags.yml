@@ -21,3 +21,11 @@ dev_preview:
 release:
   label: 新版发布
   permalink: /release
+
+ayame_paperdoll:
+  label: Ayame 纸娃娃
+  permalink: /ayame-paperdoll
+
+ayame:
+  label: Ayame
+  permalink: /ayame
