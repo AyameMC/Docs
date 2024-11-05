@@ -2,12 +2,12 @@
 slug: ayame-paperdoll-released
 title: Ayame Paperdoll Officially Released
 authors: [happyrespawnanchor]
-tags: [release]
----
-Today, the Ayame Paperdoll mod has passed the Modrinth review (CurseForge and McMod were approved yesterday), so it can be considered officially released.
-<!-- truncate -->
+tags: [ayame_paperdoll, release]
 ---
 ### [Modrinth](https://modrinth.com/mod/ayame-paperdoll) | [CurseForge](https://www.curseforge.com/minecraft/mc-mods/ayame-paperdoll) | [McMod](https://www.mcmod.cn/class/17015.html)
+Today, the Ayame PaperDoll mod has passed the Modrinth review (CurseForge and McMod were approved yesterday), so it can be considered officially released. Special thanks to **[LucunJi](https://github.com/LucunJi)** for developing the [Extra Player Renderer](https://modrinth.com/mod/ayame-paperdoll), without which this fork would not have existed!
+<!-- truncate -->
+---
 
 Ayame PaperDoll is a highly configurable paper doll mod and a fork of [Extra Player Renderer](https://modrinth.com/mod/extraplayerrenderer). It adds support for NeoForge and higher versions of Minecraft, along with more useful key bindings.
 
