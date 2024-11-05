@@ -2,12 +2,12 @@
 slug: ayame-paperdoll-released
 title: Ayame 纸娃娃正式发布
 authors: [happyrespawnanchor]
-tags: [release]
----
-今天，Ayame 纸娃娃通过了 Modrinth 审核（CurseForge 与 MC百科在昨天就过审了），它可以算是正式发布了。
-<!-- truncate -->
+tags: [ayame_paperdoll, release]
 ---
 ### [Modrinth](https://modrinth.com/mod/ayame-paperdoll) | [CurseForge](https://www.curseforge.com/minecraft/mc-mods/ayame-paperdoll) | [MC百科](https://www.mcmod.cn/class/17015.html)
+今天，Ayame 纸娃娃通过了 Modrinth 审核（CurseForge 与 MC百科在昨天就过审了），它可以算是正式发布了，也非常感谢**禄存天玑**能够开发出[[EPR] 额外玩家渲染](https://www.mcmod.cn/class/17015.html)，否则这个 Fork 也不会存在！
+<!-- truncate -->
+---
 
 Ayame 纸娃娃是一个高度可配置的纸娃娃模组，是[[EPR] 额外玩家渲染](https://www.mcmod.cn/class/17015.html)的分支。增加了 NeoForge 与更高版本的 Minecraft 支持且增加了更多实用键位。
 
