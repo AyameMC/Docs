@@ -1,5 +1,5 @@
 ---
-slug: ayame-paperdoll-released
+slug: ayame-paperdoll-v1.01.1-changelog
 title: Ayame v4.0.1/4.1.1 更新日志
 authors: [happyrespawnanchor]
 tags: [ayame_paperdoll, changelog]
