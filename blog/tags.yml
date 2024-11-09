@@ -22,6 +22,10 @@ release:
   label: 新版发布
   permalink: /release
 
+changelog:
+  label: 更新日志
+  permalink: /changelog
+
 ayame_paperdoll:
   label: Ayame 纸娃娃
   permalink: /ayame-paperdoll

@@ -22,6 +22,10 @@ release:
   label: New Version Release
   permalink: /release
 
+changelog:
+  label: Change Log
+  permalink: /changelog
+
 ayame_paperdoll:
   label: Ayame PaperDoll
   permalink: /ayame-paperdoll
