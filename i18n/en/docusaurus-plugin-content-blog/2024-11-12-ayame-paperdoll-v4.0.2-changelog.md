@@ -1,6 +1,6 @@
 ---
 slug: ayame-paperdoll-v4.0.2-changelog
-title: Ayame v4.0.2 Change Log 
+title: Ayame PaperDoll v4.0.2 Change Log 
 authors: [happyrespawnanchor]
 tags: [ayame_paperdoll, changelog]
 ---
