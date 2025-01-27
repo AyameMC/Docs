@@ -121,6 +121,12 @@ const config: Config = {
             { label: 'Ayame GitHub', href: 'https://github.com/AyameMC/Ayame' },
           ],
         },
+        {
+          title: '友情链接',
+          items: [
+            { label: 'YSM 文档', href: 'http://ysm.cfpa.team/' },
+          ],
+        }
       ],
       copyright: `Copyright © ${new Date().getFullYear()} AyameMC. Docs licensed under <a href="https://creativecommons.org/publicdomain/zero/1.0/deed" target="_blank">CC0 1.0</a>. Built with <a href="https://docusaurus.io/" target="_blank">Docusaurus</a>.`,
     },
