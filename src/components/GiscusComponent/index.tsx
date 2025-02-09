@@ -4,7 +4,7 @@ import { useColorMode } from '@docusaurus/theme-common';
 
 export default function GiscusComponent() {
   const { colorMode } = useColorMode();
-  const [userLang, setUserLang] = useState("en");
+  const [userLang, setUserLang] = useState("zh-CN");
 
   useEffect(() => {
     let browserLang = navigator.language || "zh-CN";
@@ -19,19 +19,24 @@ export default function GiscusComponent() {
   }, []);
 
   return (
-    <Giscus
-      repo="AyameMC/Docs"
-      repoId="R_kgDOMtMeoA"
-      category="Comments"
-      categoryId="DIC_kwDOMtMeoM4CmzMp"
-      mapping="pathname"
-      strict="0"
-      reactionsEnabled="1"
-      emitMetadata="1"
-      inputPosition="top"
-      loding="lazy"
-      theme={colorMode}
-      lang={userLang}
-    />
+    <div>
+      <p style={{ fontSize: "12px", color: "gray", marginBottom: "8px" }}>
+        发表评论即代表您同意进行信息审查。
+      </p>
+      <Giscus
+        repo="AyameMC/Docs"
+        repoId="R_kgDOMtMeoA"
+        category="Comments"
+        categoryId="DIC_kwDOMtMeoM4CmzMp"
+        mapping="pathname"
+        strict="0"
+        reactionsEnabled="1"
+        emitMetadata="1"
+        inputPosition="top"
+        loading="lazy"
+        theme={colorMode}
+        lang={userLang}
+      />
+    </div>
   );
 }
