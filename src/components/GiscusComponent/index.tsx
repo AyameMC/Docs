@@ -20,7 +20,7 @@ export default function GiscusComponent() {
 
   return (
     <div>
-      <p style={{ fontSize: "12px", color: "gray", marginBottom: "8px" }}>
+      <p style={{ fontSize: "12px", color: "gray", textAlign: "center" }}>
         发表评论即代表您同意进行信息审查。
       </p>
       <Giscus
