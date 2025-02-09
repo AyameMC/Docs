@@ -7,7 +7,7 @@ export default function GiscusComponent() {
   const [userLang, setUserLang] = useState("en");
 
   useEffect(() => {
-    let browserLang = navigator.language || "en";
+    let browserLang = navigator.language || "zh-CN";
 
     if (browserLang.startsWith("zh")) {
       setUserLang(browserLang);
