@@ -10,18 +10,15 @@ export default function GiscusComponent() {
     <Giscus
       repo="AyameMC/Docs"
       repoId="R_kgDOMtMeoA"
-      category="Announcements"
+      category="Comments"
       categoryId="DIC_kwDOMtMeoM4Cmycg"  // E.g. id of "General"
-      mapping="url"
+      mapping="pathname"
       strict="0"
       reactionsEnabled="1"
       emitMetadata="1"
       inputPosition="top"
       theme={colorMode}
       lang="zh-CN"
-      loading="lazy"
-      crossorigin="anonymous"
-      async
     />
   );
 }
