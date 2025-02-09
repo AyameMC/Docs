@@ -1,4 +1,4 @@
-name: Delete Discussions Containing Sensitive Words
+name: Delete Comments Containing Sensitive Words
 
 on:
   discussion_comment:
