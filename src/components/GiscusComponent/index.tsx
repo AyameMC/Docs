@@ -4,10 +4,10 @@ import { useColorMode } from '@docusaurus/theme-common';
 
 export default function GiscusComponent() {
   const { colorMode } = useColorMode();
-  const [userLang, setUserLang] = useState("zh-CN"); // 默认值
+  const [userLang, setUserLang] = useState("zh-CN");
 
   useEffect(() => {
-    setUserLang(navigator.language || "zh-CN"); // 直接使用浏览器语言
+    setUserLang(navigator.language || "zh-CN");
   }, []);
 
   return (
@@ -22,7 +22,7 @@ export default function GiscusComponent() {
       emitMetadata="1"
       inputPosition="top"
       theme={colorMode}
-      lang={userLang} // 直接传递用户语言
+      lang={userLang}
     />
   );
 }
