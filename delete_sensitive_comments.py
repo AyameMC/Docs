@@ -1,6 +1,5 @@
 import os
 import requests
-import re
 
 # GitHub API Token 和评论信息
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
@@ -17,7 +16,7 @@ GITHUB_GRAPHQL_API = "https://api.github.com/graphql"
 def fetch_sensitive_words(url):
     try:
         response = requests.get(url, timeout=10)
-        response.raise_for_status()  # 检查 HTTP 请求是否成功
+        response.raise_for_status()  # 确保 HTTP 请求成功
         words = response.text.strip().split("\n")  # 读取内容并按换行符分割
         return [word.strip().rstrip(",") for word in words if word.strip()]  # 去除空行和行末的 ,
     except requests.RequestException as e:
@@ -29,13 +28,10 @@ SENSITIVE_WORDS = fetch_sensitive_words(SENSITIVE_WORDS_URL)
 
 # 过滤并替换敏感词
 def censor_text(text, words):
-    def replace_match(match):
-        return "*" * len(match.group())  # 替换为等长的星号
-
-    # 正则匹配完整敏感词，并保留标点符号
-    pattern = re.compile(r"(?<!\w)(" + "|".join(re.escape(word) for word in words) + r")(?!\w)", re.IGNORECASE)
-
-    return pattern.sub(replace_match, text)
+    for word in words:
+        masked_word = "*" * len(word)  # 生成等长的 *
+        text = text.replace(word, masked_word)  # 直接替换
+    return text
 
 # 处理评论
 if COMMENT_BODY:
