@@ -1,4 +1,4 @@
-name: Monitor and Delete Sensitive Discussion Comments
+name: Delete Sensitive Discussion Comments
 
 on:
   discussion_comment:
@@ -11,43 +11,48 @@ jobs:
   delete_sensitive_comments:
     runs-on: ubuntu-latest
     steps:
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          node-version: '14'
+          python-version: '3.x'
 
-      - name: Delete Comment with Sensitive Words
+      - name: Delete Comment if Contains Sensitive Words
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           COMMENT_BODY: ${{ github.event.comment.body }}
           COMMENT_ID: ${{ github.event.comment.node_id }}
         run: |
-          const { Octokit } = require("@octokit/core");
-          const githubToken = process.env.GITHUB_TOKEN;
-          const commentBody = process.env.COMMENT_BODY;
-          const commentId = process.env.COMMENT_ID;
+          import os
+          import requests
 
-          const sensitiveWords = ["孙悟空"]; // 在此处添加您的敏感词
+          GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
+          COMMENT_BODY = os.getenv('COMMENT_BODY')
+          COMMENT_ID = os.getenv('COMMENT_ID')
 
-          const containsSensitiveWord = sensitiveWords.some(word =>
-            commentBody.includes(word)
-          );
+          SENSITIVE_WORDS = ["孙悟空"]  # 敏感词列表
 
-          if (containsSensitiveWord) {
-            const octokit = new Octokit({ auth: githubToken });
-            octokit.graphql(`
+          if any(word in COMMENT_BODY for word in SENSITIVE_WORDS):
+              query = """
               mutation ($id: ID!) {
                 deleteDiscussionComment(input: {id: $id}) {
                   clientMutationId
                 }
               }
-            `, {
-              id: commentId
-            }).then(() => {
-              console.log("Deleted a comment containing sensitive words.");
-            }).catch(error => {
-              console.error("Error deleting comment:", error);
-            });
-          } else {
-            console.log("No sensitive words detected.");
-          }
+              """
+              headers = {
+                  "Authorization": f"Bearer {GITHUB_TOKEN}",
+                  "Content-Type": "application/json"
+              }
+              payload = {
+                  "query": query,
+                  "variables": {"id": COMMENT_ID}
+              }
+
+              response = requests.post("https://api.github.com/graphql", json=payload, headers=headers)
+
+              if response.status_code == 200:
+                  print("Deleted a comment containing sensitive words.")
+              else:
+                  print(f"Failed to delete comment: {response.text}")
+          else:
+              print("No sensitive words detected.")
