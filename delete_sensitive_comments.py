@@ -7,25 +7,35 @@ GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 COMMENT_BODY = os.getenv("COMMENT_BODY")
 COMMENT_ID = os.getenv("COMMENT_ID")
 
-# 敏感词列表的 URL
-SENSITIVE_WORDS_URL = "https://raw.githubusercontent.com/fwwdn/sensitive-stop-words/refs/heads/master/政治类.txt"
+# 敏感词列表的 URL（4 个列表）
+SENSITIVE_WORDS_URLS = [
+    "https://raw.githubusercontent.com/fwwdn/sensitive-stop-words/refs/heads/master/政治类.txt",
+    "https://raw.githubusercontent.com/fwwdn/sensitive-stop-words/refs/heads/master/涉枪涉爆违法信息关键词.txt",
+    "https://raw.githubusercontent.com/fwwdn/sensitive-stop-words/refs/heads/master/色情类.txt",
+    "https://raw.githubusercontent.com/fwwdn/sensitive-stop-words/refs/heads/master/网址.txt",
+]
 
 # GitHub GraphQL API 端点
 GITHUB_GRAPHQL_API = "https://api.github.com/graphql"
 
 # 获取敏感词列表
-def fetch_sensitive_words(url):
-    try:
-        response = requests.get(url)
-        response.raise_for_status()  # 检查 HTTP 请求是否成功
-        words = response.text.strip().split("\n")  # 读取内容并按换行符分割
-        return [word.strip().rstrip(",") for word in words if word.strip()]  # 去除空行和行末的 ,
-    except requests.RequestException as e:
-        print(f"Failed to fetch sensitive words: {e}")
-        return []
+def fetch_sensitive_words(urls):
+    words = set()  # 使用集合去重
+    for url in urls:
+        try:
+            response = requests.get(url)
+            response.raise_for_status()  # 确保请求成功
+            lines = response.text.splitlines()  # 按行拆分（自动去除 `\r`）
+            for line in lines:
+                word = line.rstrip(",").strip()  # 去除结尾 `,` 并去除前后空格
+                if word:  # 确保不是空行
+                    words.add(word)
+        except requests.RequestException as e:
+            print(f"Failed to fetch sensitive words from {url}: {e}")
+    return list(words)  # 转回列表
 
-# 加载敏感词
-SENSITIVE_WORDS = fetch_sensitive_words(SENSITIVE_WORDS_URL)
+# 加载所有敏感词
+SENSITIVE_WORDS = fetch_sensitive_words(SENSITIVE_WORDS_URLS)
 
 # 过滤并替换敏感词
 def censor_text(text, words):
