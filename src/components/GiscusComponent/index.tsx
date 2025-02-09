@@ -21,7 +21,7 @@ export default function GiscusComponent() {
   return (
     <div>
       <p style={{ fontSize: "12px", color: "gray", textAlign: "center" }}>
-        发表评论即代表您同意进行信息审查。
+        发表评论即代表您同意对其进行内容审查。
       </p>
       <Giscus
         repo="AyameMC/Docs"
