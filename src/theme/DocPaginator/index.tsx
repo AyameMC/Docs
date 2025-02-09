@@ -10,6 +10,7 @@ export default function DocPaginatorWrapper(props: Props): ReactNode {
   return (
     <>
       <DocPaginator {...props} />
+      <div style={{ marginTop: '20px' }} />
       <GiscusComponent/>
     </>
   );
