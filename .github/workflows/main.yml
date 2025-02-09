@@ -11,48 +11,20 @@ jobs:
   delete_sensitive_comments:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
+
+      - name: Install Dependencies
+        run: pip install requests
 
       - name: Delete Comment if Contains Sensitive Words
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           COMMENT_BODY: ${{ github.event.comment.body }}
           COMMENT_ID: ${{ github.event.comment.node_id }}
-        run: |
-          import os
-          import requests
-
-          GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
-          COMMENT_BODY = os.getenv('COMMENT_BODY')
-          COMMENT_ID = os.getenv('COMMENT_ID')
-
-          SENSITIVE_WORDS = ["孙悟空"]  # 敏感词列表
-
-          if any(word in COMMENT_BODY for word in SENSITIVE_WORDS):
-              query = """
-              mutation ($id: ID!) {
-                deleteDiscussionComment(input: {id: $id}) {
-                  clientMutationId
-                }
-              }
-              """
-              headers = {
-                  "Authorization": f"Bearer {GITHUB_TOKEN}",
-                  "Content-Type": "application/json"
-              }
-              payload = {
-                  "query": query,
-                  "variables": {"id": COMMENT_ID}
-              }
-
-              response = requests.post("https://api.github.com/graphql", json=payload, headers=headers)
-
-              if response.status_code == 200:
-                  print("Deleted a comment containing sensitive words.")
-              else:
-                  print(f"Failed to delete comment: {response.text}")
-          else:
-              print("No sensitive words detected.")
+        run: python delete_sensitive_comments.py
