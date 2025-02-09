@@ -7,6 +7,7 @@ import Heading from '@theme/Heading';
 import styles from './index.module.css';
 import LogoSvg from '/static/img/logo.svg';
 import Translate from '@docusaurus/Translate';
+import { JSX } from 'react';
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
@@ -17,10 +18,10 @@ function HomepageHeader() {
           Ayame
         </Heading>
         <p className="hero__subtitle">
-        <Translate>
-        GeckoLib 驱动的自定义玩家模型模组
-        </Translate>
-          </p>
+          <Translate>
+            GeckoLib 驱动的自定义玩家模型模组
+          </Translate>
+        </p>
         <div className={styles.buttonUserDoc}>
           <Link
             className="button button--secondary button--lg"
