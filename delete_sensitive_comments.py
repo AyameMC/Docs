@@ -1,5 +1,6 @@
 import os
 import requests
+import re
 
 # GitHub API Token 和评论信息
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
@@ -15,8 +16,8 @@ GITHUB_GRAPHQL_API = "https://api.github.com/graphql"
 # 获取敏感词列表
 def fetch_sensitive_words(url):
     try:
-        response = requests.get(url, timeout=10)
-        response.raise_for_status()  # 确保 HTTP 请求成功
+        response = requests.get(url)
+        response.raise_for_status()  # 检查 HTTP 请求是否成功
         words = response.text.strip().split("\n")  # 读取内容并按换行符分割
         return [word.strip().rstrip(",") for word in words if word.strip()]  # 去除空行和行末的 ,
     except requests.RequestException as e:
@@ -26,51 +27,34 @@ def fetch_sensitive_words(url):
 # 加载敏感词
 SENSITIVE_WORDS = fetch_sensitive_words(SENSITIVE_WORDS_URL)
 
-# 逐字符匹配并替换敏感词
-def censor_text(text, words):
-    text_chars = list(text)  # 将文本转换为字符列表
-    text_lower = text.lower()  # 统一转换为小写，保证匹配不区分大小写
+# 检查评论是否包含敏感词
+def contains_sensitive_word(text, words):
+    pattern = re.compile("|".join(re.escape(word) for word in words), re.IGNORECASE)
+    return bool(pattern.search(text))
 
-    for word in words:
-        word_len = len(word)
-        search_pos = 0
+# 如果评论包含敏感词，则删除该评论
+if contains_sensitive_word(COMMENT_BODY, SENSITIVE_WORDS):
+    query = """
+    mutation ($id: ID!) {
+      deleteDiscussionComment(input: {id: $id}) {
+        clientMutationId
+      }
+    }
+    """
+    headers = {
+        "Authorization": f"Bearer {GITHUB_TOKEN}",
+        "Content-Type": "application/json"
+    }
+    payload = {
+        "query": query,
+        "variables": {"id": COMMENT_ID}
+    }
 
-        while search_pos <= len(text) - word_len:
-            # 提取子串进行匹配（忽略大小写）
-            substring = text_lower[search_pos : search_pos + word_len]
+    response = requests.post(GITHUB_GRAPHQL_API, json=payload, headers=headers)
 
-            if substring == word.lower():  # 如果匹配到敏感词
-                text_chars[search_pos : search_pos + word_len] = "*" * word_len  # 替换字符
-            search_pos += 1  # 继续匹配下一个位置
-
-    return "".join(text_chars)  # 重新拼接成字符串
-
-# 处理评论
-if COMMENT_BODY:
-    new_comment_body = censor_text(COMMENT_BODY, SENSITIVE_WORDS)
-
-    if new_comment_body != COMMENT_BODY:
-        query = """
-        mutation ($id: ID!, $body: String!) {
-          updateDiscussionComment(input: {commentId: $id, body: $body}) {
-            comment {
-              body
-            }
-          }
-        }
-        """
-        headers = {
-            "Authorization": f"Bearer {GITHUB_TOKEN}",
-            "Content-Type": "application/json"
-        }
-        payload = {
-            "query": query,
-            "variables": {"id": COMMENT_ID, "body": new_comment_body}
-        }
-
-        response = requests.post(GITHUB_GRAPHQL_API, json=payload, headers=headers)
-
-        if response.status_code == 200:
-            print("Updated the comment by replacing sensitive words with corresponding-length asterisks.")
-        else:
-            print(f"Failed to update comment: {response.status_code}, {response.text}")
+    if response.status_code == 200:
+        print("Deleted the comment containing sensitive words.")
+    else:
+        print(f"Failed to delete comment: {response.text}")
+else:
+    print("No sensitive words detected. Comment remains.")
