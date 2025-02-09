@@ -29,6 +29,7 @@ export default function GiscusComponent() {
       reactionsEnabled="1"
       emitMetadata="1"
       inputPosition="top"
+      loding="lazy"
       theme={colorMode}
       lang={userLang}
     />
