@@ -23,7 +23,7 @@ export default function GiscusComponent() {
       repo="AyameMC/Docs"
       repoId="R_kgDOMtMeoA"
       category="Comments"
-      categoryId="DIC_kwDOMtMeoM4Cmycg"
+      categoryId="DIC_kwDOMtMeoM4CmzMp"
       mapping="pathname"
       strict="0"
       reactionsEnabled="1"
