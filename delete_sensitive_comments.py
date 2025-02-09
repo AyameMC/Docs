@@ -19,7 +19,7 @@ def fetch_sensitive_words(url):
         response = requests.get(url)
         response.raise_for_status()  # 检查 HTTP 请求是否成功
         words = response.text.strip().split("\n")  # 读取内容并按换行符分割
-        return [word.strip() for word in words if word.strip()]  # 去除空行
+        return [word.strip().rstrip(",") for word in words if word.strip()]  # 去除空行和行末的 ,
     except requests.RequestException as e:
         print(f"Failed to fetch sensitive words: {e}")
         return []
@@ -65,4 +65,3 @@ if new_comment_body != COMMENT_BODY:
         print(f"Failed to update comment: {response.text}")
 else:
     print("No sensitive words detected.")
-    
