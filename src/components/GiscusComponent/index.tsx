@@ -4,16 +4,18 @@ import { useColorMode } from '@docusaurus/theme-common';
 
 export default function GiscusComponent() {
   const { colorMode } = useColorMode();
-  const [userLang, setUserLang] = useState("zh-CN");
+  const [userLang, setUserLang] = useState("en");
 
   useEffect(() => {
-    let browserLang = navigator.language || "zh-CN";
+    let browserLang = navigator.language || "en";
 
-    if (browserLang.startsWith("en-")) {
-      browserLang = "en";
+    if (browserLang.startsWith("zh")) {
+      setUserLang(browserLang);
+    } else if (browserLang.startsWith("en")) {
+      setUserLang("en");
+    } else {
+      setUserLang("en");
     }
-
-    setUserLang(browserLang);
   }, []);
 
   return (
