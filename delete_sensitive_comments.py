@@ -27,7 +27,7 @@ def fetch_sensitive_words(urls):
             response.raise_for_status()  # 确保请求成功
             lines = response.text.splitlines()  # 按行拆分（自动去除 `\r`）
             for line in lines:
-                word = line.rstrip(",").strip()  # 去除结尾 `,` 并去除前后空格
+                word = line.strip().rstrip(",")  # 先去除空格，再去除结尾的 `,`
                 if word:  # 确保不是空行
                     words.add(word)
         except requests.RequestException as e:
