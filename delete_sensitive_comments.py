@@ -26,12 +26,24 @@ def fetch_sensitive_words(url):
 # 加载敏感词
 SENSITIVE_WORDS = fetch_sensitive_words(SENSITIVE_WORDS_URL)
 
-# 过滤并替换敏感词
+# 逐字符匹配并替换敏感词
 def censor_text(text, words):
+    text_chars = list(text)  # 将文本转换为字符列表
+    text_lower = text.lower()  # 统一转换为小写，保证匹配不区分大小写
+
     for word in words:
-        masked_word = "*" * len(word)  # 生成等长的 *
-        text = text.replace(word, masked_word)  # 直接替换
-    return text
+        word_len = len(word)
+        search_pos = 0
+
+        while search_pos <= len(text) - word_len:
+            # 提取子串进行匹配（忽略大小写）
+            substring = text_lower[search_pos : search_pos + word_len]
+
+            if substring == word.lower():  # 如果匹配到敏感词
+                text_chars[search_pos : search_pos + word_len] = "*" * word_len  # 替换字符
+            search_pos += 1  # 继续匹配下一个位置
+
+    return "".join(text_chars)  # 重新拼接成字符串
 
 # 处理评论
 if COMMENT_BODY:
