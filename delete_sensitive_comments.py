@@ -7,39 +7,25 @@ GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 COMMENT_BODY = os.getenv("COMMENT_BODY")
 COMMENT_ID = os.getenv("COMMENT_ID")
 
-# 敏感词列表的 URL（4 个列表）
-SENSITIVE_WORDS_URLS = [
-    "https://raw.githubusercontent.com/fwwdn/sensitive-stop-words/refs/heads/master/政治类.txt",
-    "https://raw.githubusercontent.com/fwwdn/sensitive-stop-words/refs/heads/master/涉枪涉爆违法信息关键词.txt",
-    "https://raw.githubusercontent.com/fwwdn/sensitive-stop-words/refs/heads/master/色情类.txt",
-    "https://raw.githubusercontent.com/fwwdn/sensitive-stop-words/refs/heads/master/网址.txt",
-]
+# 敏感词列表的 URL
+SENSITIVE_WORDS_URL = "https://raw.githubusercontent.com/fwwdn/sensitive-stop-words/refs/heads/master/政治类.txt"
 
 # GitHub GraphQL API 端点
 GITHUB_GRAPHQL_API = "https://api.github.com/graphql"
 
-# 获取所有敏感词并合并
-def fetch_and_merge_sensitive_words(urls):
-    words = set()  # 使用集合去重
-    merged_text = ""  # 存储所有敏感词的文本
+# 获取敏感词列表
+def fetch_sensitive_words(url):
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # 检查 HTTP 请求是否成功
+        words = response.text.strip().split("\n")  # 读取内容并按换行符分割
+        return [word.strip().rstrip(",") for word in words if word.strip()]  # 去除空行和行末的 ,
+    except requests.RequestException as e:
+        print(f"Failed to fetch sensitive words: {e}")
+        return []
 
-    for url in urls:
-        try:
-            response = requests.get(url)
-            response.raise_for_status()  # 确保请求成功
-            merged_text += "\n" + response.text  # 合并所有文件内容
-        except requests.RequestException as e:
-            print(f"Failed to fetch sensitive words from {url}: {e}")
-
-    # 解析敏感词列表
-    for line in merged_text.splitlines():  # 按行拆分
-        clean_words = [word.strip().rstrip(",") for word in line.split() if word.strip()]
-        words.update(clean_words)  # 加入集合去重
-
-    return list(words)  # 转换回列表
-
-# 加载所有敏感词
-SENSITIVE_WORDS = fetch_and_merge_sensitive_words(SENSITIVE_WORDS_URLS)
+# 加载敏感词
+SENSITIVE_WORDS = fetch_sensitive_words(SENSITIVE_WORDS_URL)
 
 # 过滤并替换敏感词
 def censor_text(text, words):
@@ -75,7 +61,3 @@ if new_comment_body != COMMENT_BODY:
 
     if response.status_code == 200:
         print("Updated the comment by replacing sensitive words with corresponding-length asterisks.")
-    else:
-        print(f"Failed to update comment: {response.text}")
-else:
-    print("No sensitive words detected.")
