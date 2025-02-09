@@ -18,24 +18,23 @@ SENSITIVE_WORDS_URLS = [
 # GitHub GraphQL API 端点
 GITHUB_GRAPHQL_API = "https://api.github.com/graphql"
 
-# 获取敏感词列表
-def fetch_sensitive_words(urls):
-    words = set()  # 使用集合去重
+# 获取所有敏感词并合并
+def fetch_and_merge_sensitive_words(urls):
+    merged_text = ""  # 存储所有敏感词的文本
     for url in urls:
         try:
             response = requests.get(url)
             response.raise_for_status()  # 确保请求成功
-            lines = response.text.splitlines()  # 按行拆分（自动去除 `\r`）
-            for line in lines:
-                word = line.strip().rstrip(",")  # 先去除空格，再去除结尾的 `,`
-                if word:  # 确保不是空行
-                    words.add(word)
+            merged_text += "\n" + response.text  # 合并所有文件内容
         except requests.RequestException as e:
             print(f"Failed to fetch sensitive words from {url}: {e}")
-    return list(words)  # 转回列表
+    
+    # 解析敏感词列表（去掉逗号、去空行、去空格）
+    words = set(word.strip().rstrip(",") for word in merged_text.splitlines() if word.strip())
+    return list(words)  # 转换回列表
 
 # 加载所有敏感词
-SENSITIVE_WORDS = fetch_sensitive_words(SENSITIVE_WORDS_URLS)
+SENSITIVE_WORDS = fetch_and_merge_sensitive_words(SENSITIVE_WORDS_URLS)
 
 # 过滤并替换敏感词
 def censor_text(text, words):
