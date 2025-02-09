@@ -5,7 +5,7 @@ import { useLocationChange } from '@docusaurus/theme-common/internal';
 
 export default function GiscusComponent() {
   const { colorMode } = useColorMode();
-  const userLanguage = navigator.language;
+  // const userLanguage = navigator.language;
   return (
     <Giscus
       repo="AyameMC/Docs"
@@ -18,7 +18,7 @@ export default function GiscusComponent() {
       emitMetadata="1"
       inputPosition="top"
       theme={colorMode}
-      lang={userLanguage}
+      lang="zh-CN"
       loading="lazy"
       crossorigin="anonymous"
       async
