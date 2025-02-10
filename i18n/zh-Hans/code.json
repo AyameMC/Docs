@@ -349,5 +349,12 @@
   "theme.SearchPage.noResultsText": {
     "message": "没有找到任何文档",
     "description": "The paragraph for empty search result"
+  },
+  "发表评论，即代表您同意对其进行内容审查，未通过的评论将被自动删除。": {
+    "message": "发表评论，即代表您同意对其进行内容审查，未通过的评论将被自动删除。"
+  },
+  "theme.blog.author.noPosts": {
+    "message": "此作者未撰写任何帖子。",
+    "description": "The text for authors with 0 blog post"
   }
 }

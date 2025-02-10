@@ -42,5 +42,13 @@
   "link.item.label.Ayame GitHub": {
     "message": "Ayame GitHub",
     "description": "The label of footer link with label=Ayame GitHub linking to https://github.com/AyameMC/Ayame"
+  },
+  "link.title.友情链接": {
+    "message": "友情链接",
+    "description": "The title of the footer links column with title=友情链接 in the footer"
+  },
+  "link.item.label.YSM 文档": {
+    "message": "YSM 文档",
+    "description": "The label of footer link with label=YSM 文档 linking to http://ysm.cfpa.team/"
   }
 }

@@ -417,5 +417,12 @@
   "theme.blog.authorsList.viewAll": {
     "message": "View all authors",
     "description": "The label of the link targeting the blog authors page"
+  },
+  "发表评论，即代表您同意对其进行内容审查，未通过的评论将被自动删除。": {
+    "message": "By posting a comment, you agree to its content review. Comments that fail to pass the review will be automatically deleted."
+  },
+  "theme.blog.author.noPosts": {
+    "message": "This author has not written any posts yet.",
+    "description": "The text for authors with 0 blog post"
   }
 }
