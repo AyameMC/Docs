@@ -8,7 +8,7 @@ const config: Config = {
   favicon: 'img/logo.png',
 
   url: 'https://ayamemc.org',
-  baseUrl: '/',
+  baseUrl: 'docs/user-doc',
 
   organizationName: 'AyameMC',
   projectName: 'Docs',
