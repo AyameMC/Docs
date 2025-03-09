@@ -183,8 +183,11 @@ export default function AyameModelEncryptor() {
         />
       </div>
 
-      {/* 上传按钮 */}
-      <div className="text--center margin-top--md">
+      {/* 上传按钮 / 进度条 / 下载按钮共用空间 */}
+      <div
+        className="text--center margin-top--md"
+        style={{ height: '40px' }}
+      >
         {!isUploading && !downloadUrl && (
           <button
             onClick={uploadFile}
@@ -194,35 +197,30 @@ export default function AyameModelEncryptor() {
             {mode === 'encrypt' ? '上传并加密' : '上传并解密'}
           </button>
         )}
-      </div>
 
-      {/* 进度条 */}
-      {isUploading && (
-        <div
-          className="progress-bar margin-top--md"
-          style={{
-            maxWidth: '400px',
-            margin: '16px auto 0',
-            height: '6px',
-            backgroundColor: 'var(--ifm-color-emphasis-200)',
-            borderRadius: '4px',
-          }}
-        >
+        {isUploading && (
           <div
+            className="progress-bar"
             style={{
-              width: `${progress}%`,
-              height: '100%',
-              backgroundColor: 'var(--ifm-color-primary)',
+              width: '200px',
+              height: '40px',
+              backgroundColor: 'var(--ifm-color-emphasis-200)',
               borderRadius: '4px',
-              transition: 'width 0.2s',
+              overflow: 'hidden',
             }}
-          />
-        </div>
-      )}
+          >
+            <div
+              style={{
+                width: `${progress}%`,
+                height: '100%',
+                backgroundColor: 'var(--ifm-color-primary)',
+                transition: 'width 0.2s',
+              }}
+            />
+          </div>
+        )}
 
-      {/* 下载按钮 */}
-      {downloadUrl && (
-        <div className="text--center margin-top--md">
+        {downloadUrl && (
           <button
             onClick={downloadFile}
             className="button button--primary"
@@ -230,8 +228,8 @@ export default function AyameModelEncryptor() {
           >
             下载文件
           </button>
-        </div>
-      )}
+        )}
+      </div>
 
       {/* 错误信息 */}
       {error && (
