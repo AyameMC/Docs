@@ -96,7 +96,7 @@ const config: Config = {
           position: 'left',
           items: [
             {
-              href: '/encrypter',
+              href: 'https://ayamemc.org/encrypter',
               label: '模型解析器'
             }
           ],
