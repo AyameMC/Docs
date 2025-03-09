@@ -28,8 +28,8 @@ export default function Encrypter() {
 
     const endpoint =
       mode === 'encrypt'
-        ? 'https://shrill-dust-d687.happyrespawnanchor.workers.dev/encrypt'
-        : 'https://shrill-dust-d687.happyrespawnanchor.workers.dev/decrypt';
+        ? 'https://api.ayamemc.org/encrypt'
+        : 'https://api.ayamemc.org/decrypt';
 
     const response = await fetch(endpoint, {
       method: 'POST',
