@@ -96,7 +96,7 @@ const config: Config = {
           position: 'left',
           items: [
             {
-              to: '/encrypter',
+              href: '/encrypter',
               label: '模型解析器'
             }
           ],
