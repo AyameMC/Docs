@@ -6,11 +6,13 @@ export default function AyameModelEncryptor() {
   const [mode, setMode] = useState<'encrypt' | 'decrypt'>('encrypt');
   const [error, setError] = useState<string | null>(null);
   const [progress, setProgress] = useState<number | null>(null);
+  const [isCompleted, setIsCompleted] = useState<boolean>(false);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files.length > 0) {
+      resetState();
       setFile(event.target.files[0]);
       setError(null);
     }
@@ -20,6 +22,7 @@ export default function AyameModelEncryptor() {
     event.preventDefault();
     event.stopPropagation();
     if (event.dataTransfer.files && event.dataTransfer.files.length > 0) {
+      resetState();
       setFile(event.dataTransfer.files[0]);
       setError(null);
       event.dataTransfer.clearData();
@@ -36,11 +39,16 @@ export default function AyameModelEncryptor() {
   };
 
   const handleModeChange = (newMode: 'encrypt' | 'decrypt') => {
+    resetState();
     setMode(newMode);
-    setError(null);
+  };
+
+  const resetState = () => {
     setFile(null);
     setDownloadUrl(null);
     setProgress(null);
+    setError(null);
+    setIsCompleted(false);
   };
 
   const uploadFile = async () => {
@@ -49,6 +57,7 @@ export default function AyameModelEncryptor() {
       return;
     }
 
+    setIsCompleted(false);
     const formData = new FormData();
     formData.append('file', file);
 
@@ -69,6 +78,7 @@ export default function AyameModelEncryptor() {
         throw new Error('上传失败，请检查文件或稍后重试。');
       }
 
+      // 读取流数据计算进度
       const reader = response.body!.getReader();
       const totalSize = response.headers.get('content-length') || 1;
       let receivedSize = 0;
@@ -82,10 +92,12 @@ export default function AyameModelEncryptor() {
         setProgress(Math.round((receivedSize / +totalSize) * 100));
       }
 
+      // 合并二进制文件并生成下载链接
       const blob = new Blob(chunks, { type: 'application/octet-stream' });
       const url = URL.createObjectURL(blob);
       setDownloadUrl(url);
       setProgress(null);
+      setIsCompleted(true); // ✅ 标记任务完成
     } catch (err) {
       console.error(err);
       setError('上传过程中出现错误，请检查网络或稍后重试。');
@@ -111,7 +123,7 @@ export default function AyameModelEncryptor() {
         <h2>Ayame 加密模型解析器</h2>
       </div>
 
-      {/* 加密/解密选择 */}
+      {/* 加密/解密模式选择 */}
       <div
         className="margin-bottom--md"
         style={{
@@ -172,11 +184,11 @@ export default function AyameModelEncryptor() {
         />
       </div>
 
-      {/* 按钮 */}
+      {/* 上传按钮 */}
       <div className="text--center margin-top--md">
         <button
           onClick={uploadFile}
-          disabled={!file}
+          disabled={!file || isCompleted}
           className="button button--primary"
           style={{ width: '200px' }}
         >
@@ -184,7 +196,7 @@ export default function AyameModelEncryptor() {
         </button>
       </div>
 
-      {/* 下载按钮单独换行 */}
+      {/* 下载按钮（单独换行） */}
       {downloadUrl && (
         <div className="text--center margin-top--md">
           <button
