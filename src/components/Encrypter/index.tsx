@@ -43,7 +43,7 @@ export default function AyameModelEncryptor() {
 
   const uploadFile = async () => {
     if (!file) {
-      setError('请先选择一个文件');
+      setError('请先选择一个文件。');
       return;
     }
 
@@ -52,8 +52,8 @@ export default function AyameModelEncryptor() {
 
     const endpoint =
       mode === 'encrypt'
-        ? 'https://shrill-dust-d687.happyrespawnanchor.workers.dev/encrypt'
-        : 'https://shrill-dust-d687.happyrespawnanchor.workers.dev/decrypt';
+        ? 'https://api.ayamemc.org/encrypt'
+        : 'https://api.ayamemc.org/decrypt';
 
     try {
       const response = await fetch(endpoint, {
@@ -62,7 +62,7 @@ export default function AyameModelEncryptor() {
       });
 
       if (!response.ok) {
-        throw new Error('上传失败，请检查文件或稍后重试');
+        throw new Error('上传失败，请检查文件或稍后重试。');
       }
 
       const blob = await response.blob();
@@ -70,7 +70,7 @@ export default function AyameModelEncryptor() {
       setDownloadUrl(url);
     } catch (err) {
       console.error(err);
-      setError('上传过程中出现错误，请检查网络或稍后重试');
+      setError('上传过程中出现错误，请检查网络或稍后重试。');
     }
   };
 
