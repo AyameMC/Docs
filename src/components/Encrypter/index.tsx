@@ -149,23 +149,27 @@ export default function AyameModelEncryptor() {
       </div>
 
       <div className="text--center margin-top--md">
-        <button
-          onClick={uploadFile}
-          disabled={!file}
-          className="button button--primary"
-          style={{ marginBottom: '8px' }}
-        >
-          {mode === 'encrypt' ? '上传并加密' : '上传并解密'}
-        </button>
-        {downloadUrl && (
-          <button
-            onClick={downloadFile}
-            className="button button--primary"
-          >
-            下载文件
-          </button>
-        )}
-      </div>
+  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <button
+      onClick={uploadFile}
+      disabled={!file}
+      className="button button--primary"
+      style={{ marginBottom: '8px', width: '200px' }}
+    >
+      {mode === 'encrypt' ? '上传并加密' : '上传并解密'}
+    </button>
+
+    {downloadUrl && (
+      <button
+        onClick={downloadFile}
+        className="button button--primary"
+        style={{ width: '200px' }}
+      >
+        下载文件
+      </button>
+    )}
+  </div>
+</div>
 
       {error && (
         <div className="text--center margin-top--md">
