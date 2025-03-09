@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button } from '@docusaurus/theme-common';
+import { Button } from '@theme/Button';
 
 export default function Encrypter() {
   const [file, setFile] = useState<File | null>(null);
