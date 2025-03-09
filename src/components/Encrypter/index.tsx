@@ -59,35 +59,33 @@ export default function AyameModelEncryptor() {
 
     try {
       setProgress(0);
-      const xhr = new XMLHttpRequest();
-      xhr.open('POST', endpoint, true);
 
-      xhr.upload.onprogress = (event) => {
-        if (event.lengthComputable) {
-          const percentComplete = Math.round((event.loaded / event.total) * 100);
-          setProgress(percentComplete);
-        }
-      };
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        body: formData,
+      });
 
-      xhr.onload = () => {
-        if (xhr.status === 200) {
-          const blob = new Blob([xhr.response], { type: 'application/octet-stream' });
-          const url = URL.createObjectURL(blob);
-          setDownloadUrl(url);
-          setProgress(null);
-        } else {
-          setError('上传失败，请检查文件或稍后重试。');
-          setProgress(null);
-        }
-      };
+      if (!response.ok) {
+        throw new Error('上传失败，请检查文件或稍后重试。');
+      }
 
-      xhr.onerror = () => {
-        setError('上传过程中出现错误，请检查网络或稍后重试。');
-        setProgress(null);
-      };
+      const reader = response.body!.getReader();
+      const totalSize = response.headers.get('content-length') || 1;
+      let receivedSize = 0;
+      const chunks: Uint8Array[] = [];
 
-      xhr.responseType = 'blob';
-      xhr.send(formData);
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        chunks.push(value);
+        receivedSize += value.length;
+        setProgress(Math.round((receivedSize / +totalSize) * 100));
+      }
+
+      const blob = new Blob(chunks, { type: 'application/octet-stream' });
+      const url = URL.createObjectURL(blob);
+      setDownloadUrl(url);
+      setProgress(null);
     } catch (err) {
       console.error(err);
       setError('上传过程中出现错误，请检查网络或稍后重试。');
