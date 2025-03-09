@@ -5,6 +5,7 @@ export default function AyameModelEncryptor() {
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
   const [mode, setMode] = useState<'encrypt' | 'decrypt'>('encrypt');
   const [error, setError] = useState<string | null>(null);
+  const [progress, setProgress] = useState<number | null>(null);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -39,6 +40,7 @@ export default function AyameModelEncryptor() {
     setError(null);
     setFile(null);
     setDownloadUrl(null);
+    setProgress(null);
   };
 
   const uploadFile = async () => {
@@ -56,21 +58,40 @@ export default function AyameModelEncryptor() {
         : 'https://api.ayamemc.org/decrypt';
 
     try {
-      const response = await fetch(endpoint, {
-        method: 'POST',
-        body: formData,
-      });
+      setProgress(0);
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', endpoint, true);
 
-      if (!response.ok) {
-        throw new Error('上传失败，请检查文件或稍后重试。');
-      }
+      xhr.upload.onprogress = (event) => {
+        if (event.lengthComputable) {
+          const percentComplete = Math.round((event.loaded / event.total) * 100);
+          setProgress(percentComplete);
+        }
+      };
 
-      const blob = await response.blob();
-      const url = URL.createObjectURL(blob);
-      setDownloadUrl(url);
+      xhr.onload = () => {
+        if (xhr.status === 200) {
+          const blob = new Blob([xhr.response], { type: 'application/octet-stream' });
+          const url = URL.createObjectURL(blob);
+          setDownloadUrl(url);
+          setProgress(null);
+        } else {
+          setError('上传失败，请检查文件或稍后重试。');
+          setProgress(null);
+        }
+      };
+
+      xhr.onerror = () => {
+        setError('上传过程中出现错误，请检查网络或稍后重试。');
+        setProgress(null);
+      };
+
+      xhr.responseType = 'blob';
+      xhr.send(formData);
     } catch (err) {
       console.error(err);
       setError('上传过程中出现错误，请检查网络或稍后重试。');
+      setProgress(null);
     }
   };
 
@@ -78,7 +99,10 @@ export default function AyameModelEncryptor() {
     if (downloadUrl) {
       const a = document.createElement('a');
       a.href = downloadUrl;
-      a.download = mode === 'encrypt' ? `${file?.name}.aes` : file?.name.replace(/\.aes$/, '');
+      a.download =
+        mode === 'encrypt'
+          ? `${file?.name}.aes`
+          : file?.name.replace(/\.aes$/, '');
       a.click();
     }
   };
@@ -89,6 +113,7 @@ export default function AyameModelEncryptor() {
         <h2>Ayame 加密模型解析器</h2>
       </div>
 
+      {/* 加密/解密选择 */}
       <div
         className="margin-bottom--md"
         style={{
@@ -111,6 +136,7 @@ export default function AyameModelEncryptor() {
         </button>
       </div>
 
+      {/* 拖拽上传区域 */}
       <div
         className="margin-bottom--md"
         style={{
@@ -148,28 +174,50 @@ export default function AyameModelEncryptor() {
         />
       </div>
 
+      {/* 按钮与进度条 */}
       <div className="text--center margin-top--md">
-  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-    <button
-      onClick={uploadFile}
-      disabled={!file}
-      className="button button--primary"
-      style={{ marginBottom: '8px', width: '200px' }}
-    >
-      {mode === 'encrypt' ? '上传并加密' : '上传并解密'}
-    </button>
+        <button
+          onClick={uploadFile}
+          disabled={!file}
+          className="button button--primary"
+          style={{ marginBottom: '8px', width: '200px' }}
+        >
+          {mode === 'encrypt' ? '上传并加密' : '上传并解密'}
+        </button>
 
-    {downloadUrl && (
-      <button
-        onClick={downloadFile}
-        className="button button--primary"
-        style={{ width: '200px' }}
-      >
-        下载文件
-      </button>
-    )}
-  </div>
-</div>
+        {downloadUrl && (
+          <button
+            onClick={downloadFile}
+            className="button button--primary"
+            style={{ width: '200px' }}
+          >
+            下载文件
+          </button>
+        )}
+      </div>
+
+      {/* 进度条 */}
+      {progress !== null && (
+        <div
+          className="progress-bar"
+          style={{
+            maxWidth: '400px',
+            margin: '16px auto 0',
+            height: '6px',
+            backgroundColor: 'var(--ifm-color-emphasis-200)',
+            borderRadius: '4px',
+          }}
+        >
+          <div
+            style={{
+              width: `${progress}%`,
+              height: '100%',
+              backgroundColor: 'var(--ifm-color-primary)',
+              borderRadius: '4px',
+            }}
+          />
+        </div>
+      )}
 
       {error && (
         <div className="text--center margin-top--md">
