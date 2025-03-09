@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function EncryptFile() {
+export default function Encrypter() {
   const [file, setFile] = useState<File | null>(null);
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
   const [mode, setMode] = useState<'encrypt' | 'decrypt'>('encrypt');
