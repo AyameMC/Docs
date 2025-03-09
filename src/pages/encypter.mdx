@@ -4,7 +4,8 @@ description: my hello page description
 hide_table_of_contents: true
 ---
 
-import Encypter from '@site/src/components/Encypter';
+import React from 'react';
+import Encrypter from '@site/src/components/Encrypter';
 
-<Encrypter />
+{typeof window !== 'undefined' && <Encrypter />}
 
