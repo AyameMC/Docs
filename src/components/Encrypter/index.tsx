@@ -6,7 +6,7 @@ export default function AyameModelEncryptor() {
   const [mode, setMode] = useState<'encrypt' | 'decrypt'>('encrypt');
   const [error, setError] = useState<string | null>(null);
   const [progress, setProgress] = useState<number | null>(null);
-  const [isCompleted, setIsCompleted] = useState<boolean>(false);
+  const [isUploading, setIsUploading] = useState<boolean>(false);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -48,7 +48,7 @@ export default function AyameModelEncryptor() {
     setDownloadUrl(null);
     setProgress(null);
     setError(null);
-    setIsCompleted(false);
+    setIsUploading(false);
   };
 
   const uploadFile = async () => {
@@ -57,7 +57,7 @@ export default function AyameModelEncryptor() {
       return;
     }
 
-    setIsCompleted(false);
+    setIsUploading(true);
     const formData = new FormData();
     formData.append('file', file);
 
@@ -97,7 +97,6 @@ export default function AyameModelEncryptor() {
       const url = URL.createObjectURL(blob);
       setDownloadUrl(url);
       setProgress(null);
-      setIsCompleted(true); // ✅ 标记任务完成
     } catch (err) {
       console.error(err);
       setError('上传过程中出现错误，请检查网络或稍后重试。');
@@ -186,33 +185,21 @@ export default function AyameModelEncryptor() {
 
       {/* 上传按钮 */}
       <div className="text--center margin-top--md">
-        <button
-          onClick={uploadFile}
-          disabled={!file || isCompleted}
-          className="button button--primary"
-          style={{ width: '200px' }}
-        >
-          {mode === 'encrypt' ? '上传并加密' : '上传并解密'}
-        </button>
-      </div>
-
-      {/* 下载按钮（单独换行） */}
-      {downloadUrl && (
-        <div className="text--center margin-top--md">
+        {!isUploading && !downloadUrl && (
           <button
-            onClick={downloadFile}
+            onClick={uploadFile}
             className="button button--primary"
             style={{ width: '200px' }}
           >
-            下载文件
+            {mode === 'encrypt' ? '上传并加密' : '上传并解密'}
           </button>
-        </div>
-      )}
+        )}
+      </div>
 
       {/* 进度条 */}
-      {progress !== null && (
+      {isUploading && (
         <div
-          className="progress-bar"
+          className="progress-bar margin-top--md"
           style={{
             maxWidth: '400px',
             margin: '16px auto 0',
@@ -227,11 +214,26 @@ export default function AyameModelEncryptor() {
               height: '100%',
               backgroundColor: 'var(--ifm-color-primary)',
               borderRadius: '4px',
+              transition: 'width 0.2s',
             }}
           />
         </div>
       )}
 
+      {/* 下载按钮 */}
+      {downloadUrl && (
+        <div className="text--center margin-top--md">
+          <button
+            onClick={downloadFile}
+            className="button button--primary"
+            style={{ width: '200px' }}
+          >
+            下载文件
+          </button>
+        </div>
+      )}
+
+      {/* 错误信息 */}
       {error && (
         <div className="text--center margin-top--md">
           <div className="alert alert--danger" role="alert">
