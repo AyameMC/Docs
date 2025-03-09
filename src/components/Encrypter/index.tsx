@@ -19,7 +19,7 @@ export default function EncryptFile() {
     const formData = new FormData();
     formData.append('file', file);
 
-    const response = await fetch('https://shrill-dust-d687.happyrespawnanchor.workers.dev', {
+    const response = await fetch('https://api.ayamemc.org', {
       method: 'POST',
       body: formData,
     });
