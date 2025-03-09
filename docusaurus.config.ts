@@ -90,7 +90,17 @@ const config: Config = {
             // ... more items
           ],
         },
-
+       {
+          type: 'dropdown',
+          label: '工具',
+          position: 'left',
+          items: [
+            {
+              to: '/encrypter',
+              label: '模型解析器'
+            }
+          ],
+        },
         { to: '/blog', label: '更新日志', position: 'right' },
         { type: 'localeDropdown', position: 'right' },
       ],
