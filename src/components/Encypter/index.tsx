@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Button } from '@theme/Button';
 
-export default function Encrypter() {
+export default function EncryptFile() {
   const [file, setFile] = useState<File | null>(null);
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
   const [mode, setMode] = useState<'encrypt' | 'decrypt'>('encrypt');
@@ -12,7 +11,13 @@ export default function Encrypter() {
     }
   };
 
-  const handleUpload = async () => {
+  const handleModeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setMode(event.target.value as 'encrypt' | 'decrypt');
+    setFile(null);
+    setDownloadUrl(null);
+  };
+
+  const processFile = async () => {
     if (!file) {
       alert('请先选择一个文件');
       return;
@@ -21,10 +26,14 @@ export default function Encrypter() {
     const formData = new FormData();
     formData.append('file', file);
 
-    const url = mode === 'encrypt' ? '/encrypt' : '/decrypt';
-    const response = await fetch(`https://shrill-dust-d687.happyrespawnanchor.workers.dev${url}`, {
+    const endpoint =
+      mode === 'encrypt'
+        ? 'https://shrill-dust-d687.happyrespawnanchor.workers.dev/encrypt'
+        : 'https://shrill-dust-d687.happyrespawnanchor.workers.dev/decrypt';
+
+    const response = await fetch(endpoint, {
       method: 'POST',
-      body: formData
+      body: formData,
     });
 
     if (!response.ok) {
@@ -33,36 +42,60 @@ export default function Encrypter() {
     }
 
     const blob = await response.blob();
-    const newUrl = URL.createObjectURL(blob);
-    setDownloadUrl(newUrl);
+    const url = URL.createObjectURL(blob);
+    setDownloadUrl(url);
   };
 
   const downloadFile = () => {
     if (downloadUrl) {
       const a = document.createElement('a');
       a.href = downloadUrl;
-      a.download = mode === 'encrypt' ? `${file?.name}.aes` : file?.name.replace(/\.aes$/, '');
+      a.download = mode === 'encrypt' ? `${file?.name}.aes` : file?.name.replace('.aes', '') || '解密文件';
       a.click();
     }
   };
 
   return (
     <div style={{ maxWidth: '600px', margin: '0 auto', padding: '20px' }}>
-      <h2>AES 文件加密/解密</h2>
-      <input type="file" onChange={handleFileChange} style={{ marginBottom: '12px' }} />
+      <h2>AES 文件{mode === 'encrypt' ? '加密' : '解密'}</h2>
       <div style={{ marginBottom: '12px' }}>
-        <Button onClick={() => setMode('encrypt')} disabled={mode === 'encrypt'}>加密模式</Button>
-        <Button onClick={() => setMode('decrypt')} disabled={mode === 'decrypt'}>解密模式</Button>
+        <label htmlFor="mode">选择模式：</label>
+        <select id="mode" value={mode} onChange={handleModeChange}>
+          <option value="encrypt">加密</option>
+          <option value="decrypt">解密</option>
+        </select>
       </div>
-      <Button onClick={handleUpload} disabled={!file} style={{ marginRight: '8px' }}>
+      <input type="file" onChange={handleFileChange} style={{ marginBottom: '12px' }} />
+      <button
+        onClick={processFile}
+        disabled={!file}
+        style={{
+          marginRight: '8px',
+          padding: '10px 20px',
+          backgroundColor: '#4CAF50',
+          color: 'white',
+          border: 'none',
+          borderRadius: '4px',
+          cursor: 'pointer',
+        }}
+      >
         {mode === 'encrypt' ? '上传并加密' : '上传并解密'}
-      </Button>
+      </button>
       {downloadUrl && (
-        <Button onClick={downloadFile}>
+        <button
+          onClick={downloadFile}
+          style={{
+            padding: '10px 20px',
+            backgroundColor: '#008CBA',
+            color: 'white',
+            border: 'none',
+            borderRadius: '4px',
+            cursor: 'pointer',
+          }}
+        >
           下载{mode === 'encrypt' ? '加密' : '解密'}文件
-        </Button>
+        </button>
       )}
     </div>
   );
 }
-
