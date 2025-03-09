@@ -78,10 +78,7 @@ export default function AyameModelEncryptor() {
     if (downloadUrl) {
       const a = document.createElement('a');
       a.href = downloadUrl;
-      a.download =
-        mode === 'encrypt'
-          ? `${file?.name}.aes`
-          : file?.name.replace(/\.aes$/, '');
+      a.download = mode === 'encrypt' ? `${file?.name}.aes` : file?.name.replace(/\.aes$/, '');
       a.click();
     }
   };
@@ -156,13 +153,16 @@ export default function AyameModelEncryptor() {
           onClick={uploadFile}
           disabled={!file}
           className="button button--primary"
-          style={{ marginRight: '8px' }}
+          style={{ marginBottom: '8px' }}
         >
           {mode === 'encrypt' ? '上传并加密' : '上传并解密'}
         </button>
         {downloadUrl && (
-          <button onClick={downloadFile} className="button">
-            下载{mode === 'encrypt' ? '加密' : '解密'}文件
+          <button
+            onClick={downloadFile}
+            className="button button--primary"
+          >
+            下载文件
           </button>
         )}
       </div>
