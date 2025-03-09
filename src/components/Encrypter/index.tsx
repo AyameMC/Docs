@@ -183,50 +183,51 @@ export default function AyameModelEncryptor() {
         />
       </div>
 
-      {/* 上传按钮 / 进度条 / 下载按钮共用空间 */}
+      {/* 动态按钮区：按钮/进度条/下载按钮同位 */}
       <div
         className="text--center margin-top--md"
         style={{ height: '40px' }}
       >
-        {!isUploading && !downloadUrl && (
-          <button
-            onClick={uploadFile}
-            className="button button--primary"
-            style={{ width: '200px' }}
-          >
-            {mode === 'encrypt' ? '上传并加密' : '上传并解密'}
-          </button>
-        )}
-
-        {isUploading && (
+        {isUploading ? (
           <div
-            className="progress-bar"
+            className="button button--primary"
             style={{
               width: '200px',
               height: '40px',
-              backgroundColor: 'var(--ifm-color-emphasis-200)',
-              borderRadius: '4px',
-              overflow: 'hidden',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              backgroundColor: 'var(--ifm-color-primary)',
+              borderRadius: '4px'
             }}
           >
             <div
               style={{
                 width: `${progress}%`,
                 height: '100%',
-                backgroundColor: 'var(--ifm-color-primary)',
-                transition: 'width 0.2s',
+                backgroundColor: 'var(--ifm-color-success)',
+                transition: 'width 0.2s'
               }}
             />
+            <span style={{ position: 'absolute', color: 'white' }}>
+              {progress}%
+            </span>
           </div>
-        )}
-
-        {downloadUrl && (
+        ) : downloadUrl ? (
           <button
             onClick={downloadFile}
             className="button button--primary"
             style={{ width: '200px' }}
           >
             下载文件
+          </button>
+        ) : (
+          <button
+            onClick={uploadFile}
+            className="button button--primary"
+            style={{ width: '200px' }}
+          >
+            {mode === 'encrypt' ? '上传并加密' : '上传并解密'}
           </button>
         )}
       </div>
