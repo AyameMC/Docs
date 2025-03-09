@@ -172,18 +172,21 @@ export default function AyameModelEncryptor() {
         />
       </div>
 
-      {/* 按钮与进度条 */}
+      {/* 按钮 */}
       <div className="text--center margin-top--md">
         <button
           onClick={uploadFile}
           disabled={!file}
           className="button button--primary"
-          style={{ marginBottom: '8px', width: '200px' }}
+          style={{ width: '200px' }}
         >
           {mode === 'encrypt' ? '上传并加密' : '上传并解密'}
         </button>
+      </div>
 
-        {downloadUrl && (
+      {/* 下载按钮单独换行 */}
+      {downloadUrl && (
+        <div className="text--center margin-top--md">
           <button
             onClick={downloadFile}
             className="button button--primary"
@@ -191,8 +194,8 @@ export default function AyameModelEncryptor() {
           >
             下载文件
           </button>
-        )}
-      </div>
+        </div>
+      )}
 
       {/* 进度条 */}
       {progress !== null && (
