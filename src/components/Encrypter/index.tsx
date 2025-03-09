@@ -8,7 +8,6 @@ export default function Encrypter() {
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  // 处理文件选择（通过 input 选择）
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files.length > 0) {
       setFile(event.target.files[0]);
@@ -16,7 +15,6 @@ export default function Encrypter() {
     }
   };
 
-  // 拖拽上传处理
   const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
     event.stopPropagation();
@@ -32,18 +30,17 @@ export default function Encrypter() {
     event.stopPropagation();
   };
 
-  // 点击区域触发隐藏的 input
   const handleClickDropArea = () => {
     fileInputRef.current?.click();
   };
 
-  // 切换加密或解密模式
   const handleModeChange = (newMode: 'encrypt' | 'decrypt') => {
     setMode(newMode);
     setError(null);
+    setFile(null);
+    setDownloadUrl(null);
   };
 
-  // 上传文件（调用后端 API）
   const uploadFile = async () => {
     if (!file) {
       setError('请先选择一个文件');
@@ -55,8 +52,8 @@ export default function Encrypter() {
 
     const endpoint =
       mode === 'encrypt'
-        ? 'https://api.ayamemc.org/encrypt'
-        : 'https://api.ayamemc.org/decrypt';
+        ? 'https://shrill-dust-d687.happyrespawnanchor.workers.dev/encrypt'
+        : 'https://shrill-dust-d687.happyrespawnanchor.workers.dev/decrypt';
 
     try {
       const response = await fetch(endpoint, {
@@ -77,7 +74,6 @@ export default function Encrypter() {
     }
   };
 
-  // 下载文件，不删除按钮
   const downloadFile = () => {
     if (downloadUrl) {
       const a = document.createElement('a');
@@ -87,7 +83,6 @@ export default function Encrypter() {
           ? `${file?.name}.aes`
           : file?.name.replace(/\.aes$/, '');
       a.click();
-      // 保留下载链接，用户可重复点击下载
     }
   };
 
@@ -98,69 +93,78 @@ export default function Encrypter() {
         <h2>AES 文件{mode === 'encrypt' ? '加密' : '解密'}</h2>
       </div>
 
-      {/* 模式选择区域：单独一行 */}
-      <div className="text--center margin-bottom--md">
+      {/* 模式选择 */}
+      <div className="button-group margin-bottom--md text--center">
         <button
-          className="button"
+          className={`button ${mode === 'encrypt' ? 'button--primary' : ''}`}
           onClick={() => handleModeChange('encrypt')}
           style={{ marginRight: '8px' }}
         >
           加密文件
         </button>
-        <button className="button" onClick={() => handleModeChange('decrypt')}>
+        <button
+          className={`button ${mode === 'decrypt' ? 'button--primary' : ''}`}
+          onClick={() => handleModeChange('decrypt')}
+        >
           解密文件
         </button>
       </div>
 
-      {/* 文件选择区域：单独一行，支持点击和拖拽 */}
-      <div className="text--center margin-bottom--md">
-        <div
-          onDrop={handleDrop}
-          onDragOver={handleDragOver}
-          onClick={handleClickDropArea}
-          style={{
-            border: '2px dashed #ccc',
-            padding: '20px',
-            cursor: 'pointer',
-            borderRadius: '4px',
-            backgroundColor: '#f9f9f9',
-          }}
-        >
-          {file ? (
-            <span>已选择文件: {file.name}</span>
-          ) : (
-            <span>点击或拖拽文件到此区域以上传</span>
-          )}
-        </div>
-        <input
-          type="file"
-          onChange={handleFileChange}
-          ref={fileInputRef}
-          style={{ display: 'none' }}
-        />
+      {/* 文件选择区域 */}
+      <div
+        className="card card--full-width text--center"
+        style={{
+          border: '2px dashed #ccc',
+          padding: '20px',
+          backgroundColor: 'var(--ifm-card-background-color)',
+          borderRadius: '4px',
+          cursor: 'pointer',
+        }}
+        onClick={handleClickDropArea}
+        onDrop={handleDrop}
+        onDragOver={handleDragOver}
+      >
+        {file ? (
+          <strong>{file.name}</strong>
+        ) : (
+          <span style={{ color: 'var(--ifm-color-emphasis-600)' }}>
+            点击或拖拽文件到此区域上传
+          </span>
+        )}
       </div>
+      <input
+        type="file"
+        onChange={handleFileChange}
+        ref={fileInputRef}
+        style={{ display: 'none' }}
+      />
 
-      {/* 操作按钮区域 */}
-      <div className="text--center">
+      {/* 按钮区域 */}
+      <div className="text--center margin-top--md">
         <button
+          className="button button--primary"
           onClick={uploadFile}
           disabled={!file}
-          className="button"
           style={{ marginRight: '8px' }}
         >
           {mode === 'encrypt' ? '上传并加密' : '上传并解密'}
         </button>
         {downloadUrl && (
-          <button onClick={downloadFile} className="button">
+          <button className="button button--secondary" onClick={downloadFile}>
             下载{mode === 'encrypt' ? '加密' : '解密'}文件
           </button>
         )}
       </div>
 
-      {/* 错误提示 */}
+      {/* 提示 */}
       {error && (
-        <div className="alert alert--danger margin-top--md" role="alert">
+        <div className="alert alert--danger margin-top--md">
           {error}
+        </div>
+      )}
+      {downloadUrl && (
+        <div className="alert alert--success margin-top--md">
+          文件处理成功，请点击下载。
         </div>
       )}
     </div>
